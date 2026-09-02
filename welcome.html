@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en-GB">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Everything Your Garden Needs | Blossom</title>
+  <meta name="description" content="One trusted point of contact for garden design, projects, maintenance and complete garden management across Surrey, Hampshire and Sussex.">
+  <meta name="robots" content="noindex, nofollow">
+  <link rel="icon" type="image/png" href="assets/img/logo-lockup.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,600;0,9..144,700;1,9..144,400&family=Plus+Jakarta+Sans:wght@400;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="assets/css/style.css?v=22">
+</head>
+<body class="landing">
+  <a class="skip-link" href="#book">Skip to enquiry form</a>
+
+  <main>
+    <section class="landing-hero">
+      <div class="wrap-narrow">
+        <img class="brand-mark" src="assets/img/logo-lockup.png" alt="Blossom logo" width="220" height="145">
+        <span class="eyebrow" style="margin-bottom: 10px;">Complete Garden Management</span>
+        <h1>Everything your garden needs. One number to call.</h1>
+        <p class="standfirst" style="margin-left: auto; margin-right: auto;">Planting, landscaping, garden buildings, outdoor living, maintenance or a complete transformation. Tell Blossom what you want from the garden and we will organise what it takes.</p>
+        <div class="btn-row" style="justify-content: center;">
+          <a class="btn btn-primary" href="#book">Tell us what your garden needs</a>
+          <a class="cta-link" data-event="book_review_click" href="#book">Book a Garden Review</a>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="book" style="padding-top: 40px;">
+      <div class="wrap-narrow">
+        <div class="form-panel">
+          <span class="eyebrow">What can Blossom help with?</span>
+          <form data-enquiry id="qr-enquiry" method="POST" action="https://REPLACE_WITH_FORM_ENDPOINT.example/f/blossom" data-thanks="thanks.html">
+            <div class="form-grid">
+              <div>
+                <label for="name">Your name</label>
+                <input type="text" id="name" name="name" autocomplete="name" required>
+              </div>
+              <div>
+                <label for="contact">Phone or email</label>
+                <input type="text" id="contact" name="contact" autocomplete="email" required>
+              </div>
+              <div>
+                <label for="location">Town, village or postcode</label>
+                <input type="text" id="location" name="location" required>
+              </div>
+              <div>
+                <label for="help_with">What can Blossom help with?</label>
+                <select id="help_with" name="help_with">
+                  <option>I want to improve the garden</option>
+                  <option>I have a specific project in mind</option>
+                  <option>I need somebody to manage existing work</option>
+                  <option>I want ongoing garden management</option>
+                  <option>I am not sure where to start</option>
+                </select>
+              </div>
+              <div class="span-2 consent-row">
+                <input type="checkbox" id="consent" name="consent" required>
+                <label for="consent">I am happy for Blossom to use these details to respond to my enquiry. <a href="privacy.html">Privacy policy</a>.</label>
+              </div>
+              <input type="hidden" name="utm_source"><input type="hidden" name="utm_medium">
+              <input type="hidden" name="utm_campaign"><input type="hidden" name="utm_content">
+              <input type="hidden" name="landing_page"><input type="hidden" name="referrer">
+              <div class="span-2">
+                <button class="btn btn-primary" type="submit" style="width: 100%;">Start the conversation</button>
+              </div>
+            </div>
+          </form>
+        </div>
+
+        <div style="margin-top: 36px;">
+          <h2 style="font-size: clamp(24px, 5vw, 30px);">You decide the outcome. We manage the detail.</h2>
+          <ul class="check-list">
+            <li>We understand the garden and establish the right plan.</li>
+            <li>We source and coordinate the specialists the work requires.</li>
+            <li>We manage delivery, quality and what happens next.</li>
+          </ul>
+          <p class="smallprint">Serving Surrey, Hampshire and Sussex.</p>
+          <p><a href="index.html">Explore the full website</a></p>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <div class="landing-cta-bar">
+    <a class="btn btn-primary" href="#book">Tell us what your garden needs</a>
+  </div>
+
+  <footer class="site-footer" style="padding: 28px 0;">
+    <div class="wrap footer-legal" style="padding-top: 0; justify-content: center;">
+      <span>© 2026 Blossom</span>
+      <a href="privacy.html">Privacy</a>
+      <a href="cookies.html">Cookies</a>
+    </div>
+  </footer>
+
+  <div class="cookie-banner" role="dialog" aria-modal="false" aria-label="Cookie preferences">
+    <p><strong>A quiet word about cookies.</strong> We would like to use optional analytics to understand which pages help visitors most. No advertising and no data sold. The site works fully either way.</p>
+    <div class="cookie-actions">
+      <button class="btn btn-primary" data-consent-accept>Accept analytics</button>
+      <button class="btn btn-outline" data-consent-decline>Essential only</button>
+    </div>
+  </div>
+
+  <script src="assets/js/main.js?v=22"></script>
+</body>
+</html>

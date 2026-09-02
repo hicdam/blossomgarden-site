@@ -1,0 +1,57 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 520 520" role="img" aria-label="The Garden Year: four seasonal visits across spring, summer, autumn and winter">
+  <defs>
+    <style>
+      .season { font-family: Georgia, serif; font-style: italic; font-size: 22px; fill: #22382B; }
+      .note { font-family: Georgia, serif; font-style: italic; font-size: 13px; fill: #5C594F; }
+      .centre-title { font-family: Georgia, serif; font-size: 26px; fill: #22382B; }
+    </style>
+    <g id="ybloom">
+      <g fill="#D6A0A4">
+        <ellipse cx="0" cy="-6.5" rx="3.6" ry="5.1"/>
+        <ellipse cx="6.2" cy="-2" rx="3.6" ry="5.1" transform="rotate(72 6.2 -2)"/>
+        <ellipse cx="3.8" cy="5.3" rx="3.6" ry="5.1" transform="rotate(144 3.8 5.3)"/>
+        <ellipse cx="-3.8" cy="5.3" rx="3.6" ry="5.1" transform="rotate(216 -3.8 5.3)"/>
+        <ellipse cx="-6.2" cy="-2" rx="3.6" ry="5.1" transform="rotate(288 -6.2 -2)"/>
+      </g>
+      <circle r="2" fill="#7C4E55"/>
+    </g>
+  </defs>
+
+  <!-- faint full ring -->
+  <circle cx="260" cy="260" r="170" fill="none" stroke="rgba(34,56,43,.12)" stroke-width="1"/>
+
+  <!-- seasonal arcs -->
+  <path d="M 289.5,92.6 A 170,170 0 0 1 427.4,230.5" fill="none" stroke="#D6A0A4" stroke-width="46" stroke-linecap="round"/>
+  <path d="M 427.4,289.5 A 170,170 0 0 1 289.5,427.4" fill="none" stroke="#8A9480" stroke-width="46" stroke-linecap="round"/>
+  <path d="M 230.5,427.4 A 170,170 0 0 1 92.6,289.5" fill="none" stroke="#C9AC7A" stroke-width="46" stroke-linecap="round"/>
+  <path d="M 92.6,230.5 A 170,170 0 0 1 230.5,92.6" fill="none" stroke="#7E958D" stroke-width="46" stroke-linecap="round"/>
+
+  <!-- visit markers -->
+  <use href="#ybloom" transform="translate(380,140) scale(1.1)"/>
+  <use href="#ybloom" transform="translate(380,380) scale(1.1)"/>
+  <use href="#ybloom" transform="translate(140,380) scale(1.1)"/>
+  <use href="#ybloom" transform="translate(140,140) scale(1.1)"/>
+
+  <!-- labels -->
+  <text x="418" y="106" class="season" text-anchor="start">Spring</text>
+  <text x="418" y="126" class="note" text-anchor="start">planting review,</text>
+  <text x="418" y="142" class="note" text-anchor="start">first-flush checks</text>
+
+  <text x="418" y="404" class="season" text-anchor="start">Summer</text>
+  <text x="418" y="424" class="note" text-anchor="start">growth, watering,</text>
+  <text x="418" y="440" class="note" text-anchor="start">holiday cover plan</text>
+
+  <text x="102" y="404" class="season" text-anchor="end">Autumn</text>
+  <text x="102" y="424" class="note" text-anchor="end">bulbs, structure,</text>
+  <text x="102" y="440" class="note" text-anchor="end">next-year planning</text>
+
+  <text x="102" y="106" class="season" text-anchor="end">Winter</text>
+  <text x="102" y="126" class="note" text-anchor="end">pruning, projects,</text>
+  <text x="102" y="142" class="note" text-anchor="end">design season</text>
+
+  <!-- centre -->
+  <use href="#ybloom" transform="translate(260,218) scale(1.4)"/>
+  <text x="260" y="268" class="centre-title" text-anchor="middle">The Garden Year</text>
+  <text x="260" y="292" class="note" text-anchor="middle">four seasonal visits,</text>
+  <text x="260" y="308" class="note" text-anchor="middle">one evolving plan</text>
+</svg>

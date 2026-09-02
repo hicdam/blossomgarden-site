@@ -1,0 +1,63 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 760 320" role="img" aria-label="A planting palette: six swatches from blossom pink through lavender and grass gold to deep yew green, each labelled with a plant">
+  <defs>
+    <style>
+      .pname { font-family: Georgia, serif; font-style: italic; font-size: 14px; fill: #4A473F; }
+      .prole { font-family: Georgia, serif; font-size: 10px; fill: #8B867A; letter-spacing: .06em; }
+    </style>
+  </defs>
+  <rect x="8" y="8" width="744" height="304" fill="#FDFBF7" stroke="rgba(34,56,43,.2)" stroke-width="1"/>
+  <text x="34" y="46" class="pname" style="font-size: 18px;">A palette for chalk, in late spring</text>
+  <line x1="34" y1="58" x2="312" y2="58" stroke="rgba(34,56,43,.25)" stroke-width="1"/>
+
+  <g>
+    <rect x="34" y="80" width="96" height="130" fill="#EDD3CE"/>
+    <path d="M52,118 C64,104 86,102 104,110 C94,128 68,134 52,118 Z" fill="#D6A0A4" opacity=".7"/>
+    <text x="36" y="234" class="pname">Amelanchier</text>
+    <text x="36" y="252" class="prole">BLOSSOM CANOPY</text>
+  </g>
+  <g>
+    <rect x="152" y="80" width="96" height="130" fill="#B0767D"/>
+    <circle cx="188" cy="128" r="18" fill="#9C5F66"/>
+    <circle cx="216" cy="152" r="12" fill="#C8909A" opacity=".8"/>
+    <text x="154" y="234" class="pname">Rosa 'Gertrude</text>
+    <text x="154" y="250" class="pname">Jekyll'</text>
+    <text x="154" y="268" class="prole">SCENT, REPEAT</text>
+  </g>
+  <g>
+    <rect x="270" y="80" width="96" height="130" fill="#8B7A96"/>
+    <g stroke="#6E5F7A" stroke-width="2.6" stroke-linecap="round">
+      <line x1="292" y1="184" x2="292" y2="128"/><line x1="310" y1="184" x2="310" y2="114"/>
+      <line x1="328" y1="184" x2="328" y2="132"/><line x1="346" y1="184" x2="346" y2="120"/>
+    </g>
+    <text x="272" y="234" class="pname">Lavandula</text>
+    <text x="272" y="250" class="pname">'Hidcote'</text>
+    <text x="272" y="268" class="prole">EDGES, BEES</text>
+  </g>
+  <g>
+    <rect x="388" y="80" width="96" height="130" fill="#C9AC7A"/>
+    <g stroke="#B0925E" stroke-width="1.7" stroke-linecap="round" fill="none">
+      <path d="M408,186 C410,152 406,130 412,108"/>
+      <path d="M426,186 C430,148 424,128 432,104"/>
+      <path d="M446,186 C446,154 452,132 448,110"/>
+      <path d="M464,186 C468,156 462,134 470,116"/>
+    </g>
+    <text x="390" y="234" class="pname">Stipa</text>
+    <text x="390" y="250" class="pname">tenuissima</text>
+    <text x="390" y="268" class="prole">MOVEMENT, LIGHT</text>
+  </g>
+  <g>
+    <rect x="506" y="80" width="96" height="130" fill="#EFE7D8"/>
+    <circle cx="542" cy="126" r="22" fill="#E2D5BE"/>
+    <circle cx="570" cy="150" r="15" fill="#E8DCC8"/>
+    <text x="508" y="234" class="pname">Hydrangea</text>
+    <text x="508" y="250" class="pname">'Annabelle'</text>
+    <text x="508" y="268" class="prole">SHADE, STRUCTURE</text>
+  </g>
+  <g>
+    <rect x="624" y="80" width="96" height="130" fill="#22382B"/>
+    <path d="M644,184 L657,132 L670,184 Z" fill="#16261D"/>
+    <path d="M670,184 L685,118 L700,184 Z" fill="#2C4636"/>
+    <text x="626" y="234" class="pname">Taxus baccata</text>
+    <text x="626" y="252" class="prole">EVERGREEN BONES</text>
+  </g>
+</svg>

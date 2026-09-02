@@ -1,0 +1,5 @@
+User-agent: *
+Allow: /
+Disallow: /welcome.html
+Disallow: /thanks.html
+Sitemap: https://blossomgarden.design/sitemap.xml

@@ -1,0 +1,42 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 420 240" role="presentation" aria-hidden="true">
+  <defs>
+    <g id="cbloom">
+      <g fill="currentColor">
+        <ellipse cx="0" cy="-5.2" rx="2.9" ry="4.1"/>
+        <ellipse cx="4.9" cy="-1.6" rx="2.9" ry="4.1" transform="rotate(72 4.9 -1.6)"/>
+        <ellipse cx="3.1" cy="4.2" rx="2.9" ry="4.1" transform="rotate(144 3.1 4.2)"/>
+        <ellipse cx="-3.1" cy="4.2" rx="2.9" ry="4.1" transform="rotate(216 -3.1 4.2)"/>
+        <ellipse cx="-4.9" cy="-1.6" rx="2.9" ry="4.1" transform="rotate(288 -4.9 -1.6)"/>
+      </g>
+      <circle r="1.6" fill="#7C4E55"/>
+    </g>
+    <path id="cleaf" d="M0,0 C2.8,-2.3 6,-2.3 8.4,0 C6,2.3 2.8,2.3 0,0 Z" fill="#7C4E55"/>
+  </defs>
+  <g fill="none" stroke="#3A2E29" stroke-linecap="round">
+    <path d="M0,36 C60,44 120,60 180,88 C240,116 290,150 330,192" stroke-width="5"/>
+    <path d="M150,74 C170,64 188,58 210,56" stroke-width="2.6"/>
+    <path d="M236,114 C256,108 274,106 292,108" stroke-width="2.4"/>
+    <path d="M92,55 C104,44 118,37 134,34" stroke-width="2.2"/>
+    <path d="M300,164 C316,152 334,146 354,146" stroke-width="2.2"/>
+  </g>
+  <use href="#cleaf" transform="translate(122,60) rotate(-30)"/>
+  <use href="#cleaf" transform="translate(258,106) rotate(10)"/>
+  <use href="#cleaf" transform="translate(196,86) rotate(40)"/>
+  <g color="#D6A0A4">
+    <use href="#cbloom" transform="translate(212,54) scale(1.15) rotate(14)"/>
+    <use href="#cbloom" transform="translate(296,106) scale(1.05) rotate(-22)"/>
+    <use href="#cbloom" transform="translate(140,32) scale(1) rotate(40)"/>
+    <use href="#cbloom" transform="translate(338,196) scale(1.1) rotate(8)"/>
+  </g>
+  <g color="#EDD3CE">
+    <use href="#cbloom" transform="translate(186,60) scale(.9) rotate(-30)"/>
+    <use href="#cbloom" transform="translate(272,120) scale(.85) rotate(24)"/>
+    <use href="#cbloom" transform="translate(358,150) scale(.95) rotate(-10)"/>
+    <use href="#cbloom" transform="translate(112,40) scale(.8) rotate(60)"/>
+  </g>
+  <g color="#B0767D">
+    <use href="#cbloom" transform="translate(232,64) scale(.75) rotate(48)"/>
+    <use href="#cbloom" transform="translate(316,116) scale(.7) rotate(-40)"/>
+    <use href="#cbloom" transform="translate(162,44) scale(.7) rotate(16)"/>
+  </g>
+</svg>

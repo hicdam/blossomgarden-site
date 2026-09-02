@@ -1,0 +1,71 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 230" role="img" aria-label="Blossom tree mark">
+  <defs>
+    <g id="bloomL">
+      <g fill="currentColor">
+        <ellipse cx="0" cy="-5.6" rx="3.1" ry="4.4"/>
+        <ellipse cx="5.3" cy="-1.7" rx="3.1" ry="4.4" transform="rotate(72 5.3 -1.7)"/>
+        <ellipse cx="3.3" cy="4.5" rx="3.1" ry="4.4" transform="rotate(144 3.3 4.5)"/>
+        <ellipse cx="-3.3" cy="4.5" rx="3.1" ry="4.4" transform="rotate(216 -3.3 4.5)"/>
+        <ellipse cx="-5.3" cy="-1.7" rx="3.1" ry="4.4" transform="rotate(288 -5.3 -1.7)"/>
+      </g>
+      <circle r="1.7" fill="#B0767D"/>
+    </g>
+    <path id="leafL" d="M0,0 C3,-2.5 6.5,-2.5 9,0 C6.5,2.5 3,2.5 0,0 Z" fill="#C8A2A7"/>
+    <path id="petalL" d="M0,0 C2.8,-3.4 7.2,-3.4 9.5,-0.4 C7,2.8 2.6,2.9 0,0 Z"/>
+  </defs>
+
+  <g fill="none" stroke="#F6F1E7" stroke-linecap="round" opacity=".92">
+    <path d="M126,212 C120,180 122,150 114,120 C108,100 100,88 88,78" stroke-width="10"/>
+    <path d="M126,212 C116,208 106,208 97,212" stroke-width="5"/>
+    <path d="M126,212 C136,207 146,207 155,211" stroke-width="5"/>
+    <path d="M113,118 C96,102 76,94 52,92" stroke-width="5.5"/>
+    <path d="M101,91 C104,74 112,60 128,50" stroke-width="4.5"/>
+    <path d="M118,142 C134,133 148,130 163,124" stroke-width="4"/>
+    <path d="M52,92 C44,88 38,82 34,74" stroke-width="2.4"/>
+    <path d="M70,94 C66,86 64,78 65,70" stroke-width="2.2"/>
+    <path d="M128,50 C136,44 146,40 157,40" stroke-width="2.6"/>
+    <path d="M112,63 C114,55 118,48 124,43" stroke-width="2"/>
+    <path d="M163,124 C171,119 176,113 179,105" stroke-width="2.4"/>
+    <path d="M143,133 C147,126 149,119 149,112" stroke-width="2"/>
+  </g>
+
+  <use href="#leafL" transform="translate(60,100) rotate(24)"/>
+  <use href="#leafL" transform="translate(94,58) rotate(-30)"/>
+  <use href="#leafL" transform="translate(148,116) rotate(12)"/>
+  <use href="#leafL" transform="translate(84,84) rotate(60)"/>
+  <use href="#leafL" transform="translate(136,60) rotate(-58)"/>
+
+  <g color="#D6A0A4">
+    <use href="#bloomL" transform="translate(46,80) scale(1.15)"/>
+    <use href="#bloomL" transform="translate(78,66) scale(1.3) rotate(18)"/>
+    <use href="#bloomL" transform="translate(112,44) scale(1.2) rotate(40)"/>
+    <use href="#bloomL" transform="translate(146,44) scale(1.05) rotate(-16)"/>
+    <use href="#bloomL" transform="translate(170,110) scale(1.1) rotate(8)"/>
+    <use href="#bloomL" transform="translate(96,80) scale(.95) rotate(66)"/>
+    <use href="#bloomL" transform="translate(129,64) scale(.9) rotate(-30)"/>
+  </g>
+  <g color="#EDD3CE">
+    <use href="#bloomL" transform="translate(33,66) scale(.95) rotate(30)"/>
+    <use href="#bloomL" transform="translate(62,60) scale(1.05) rotate(-24)"/>
+    <use href="#bloomL" transform="translate(95,34) scale(1) rotate(52)"/>
+    <use href="#bloomL" transform="translate(131,32) scale(.9) rotate(10)"/>
+    <use href="#bloomL" transform="translate(160,32) scale(.85) rotate(-40)"/>
+    <use href="#bloomL" transform="translate(178,92) scale(.9) rotate(22)"/>
+    <use href="#bloomL" transform="translate(152,100) scale(.8) rotate(-12)"/>
+    <use href="#bloomL" transform="translate(56,44) scale(.8) rotate(70)"/>
+  </g>
+  <g color="#C8848C">
+    <use href="#bloomL" transform="translate(44,56) scale(.8) rotate(-20)"/>
+    <use href="#bloomL" transform="translate(80,44) scale(.85) rotate(34)"/>
+    <use href="#bloomL" transform="translate(113,24) scale(.8) rotate(-46)"/>
+    <use href="#bloomL" transform="translate(147,22) scale(.75) rotate(20)"/>
+    <use href="#bloomL" transform="translate(174,74) scale(.85) rotate(48)"/>
+    <use href="#bloomL" transform="translate(88,24) scale(.7) rotate(-8)"/>
+    <use href="#bloomL" transform="translate(66,80) scale(.75) rotate(52)"/>
+    <use href="#bloomL" transform="translate(160,60) scale(.8) rotate(-34)"/>
+  </g>
+
+  <use href="#petalL" fill="#D6A0A4" transform="translate(66,140) rotate(-24) scale(.9)"/>
+  <use href="#petalL" fill="#EDD3CE" transform="translate(84,168) rotate(38) scale(.8)"/>
+  <use href="#petalL" fill="#C8848C" transform="translate(58,192) rotate(-60) scale(.7)"/>
+</svg>

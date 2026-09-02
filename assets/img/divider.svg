@@ -1,0 +1,23 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 240 44" role="presentation" aria-hidden="true">
+  <defs>
+    <g id="dbloom">
+      <g fill="currentColor">
+        <ellipse cx="0" cy="-4.4" rx="2.5" ry="3.5"/>
+        <ellipse cx="4.2" cy="-1.4" rx="2.5" ry="3.5" transform="rotate(72 4.2 -1.4)"/>
+        <ellipse cx="2.6" cy="3.6" rx="2.5" ry="3.5" transform="rotate(144 2.6 3.6)"/>
+        <ellipse cx="-2.6" cy="3.6" rx="2.5" ry="3.5" transform="rotate(216 -2.6 3.6)"/>
+        <ellipse cx="-4.2" cy="-1.4" rx="2.5" ry="3.5" transform="rotate(288 -4.2 -1.4)"/>
+      </g>
+      <circle r="1.4" fill="#54614A"/>
+    </g>
+  </defs>
+  <line x1="0" y1="24" x2="78" y2="24" stroke="rgba(34,56,43,.25)" stroke-width="1"/>
+  <line x1="162" y1="24" x2="240" y2="24" stroke="rgba(34,56,43,.25)" stroke-width="1"/>
+  <path d="M86,26 C100,20 112,18 124,20 C136,22 146,24 154,26" fill="none" stroke="#4A5540" stroke-width="1.8" stroke-linecap="round"/>
+  <path d="M104,21 C106,16 110,12 116,10" fill="none" stroke="#4A5540" stroke-width="1.3" stroke-linecap="round"/>
+  <path d="M132,21 C136,17 138,14 139,10" fill="none" stroke="#4A5540" stroke-width="1.2" stroke-linecap="round"/>
+  <use href="#dbloom" x="0" y="0" transform="translate(90,24) scale(1)" color="#A9B49B"/>
+  <use href="#dbloom" transform="translate(117,9) scale(.95) rotate(20)" color="#CBD5B9"/>
+  <use href="#dbloom" transform="translate(140,9) scale(.8) rotate(-15)" color="#7C9163"/>
+  <use href="#dbloom" transform="translate(152,25) scale(.9) rotate(30)" color="#A9B49B"/>
+</svg>
