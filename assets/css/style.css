@@ -723,7 +723,3 @@ textarea { min-height: 110px; resize: vertical; }
 .section-deep.tint-lilac, .check-cell.tint-lilac, .receive.tint-lilac, .tint-panel.tint-lilac { background: #F3EFF4; }
 .section-deep.tint-rose,  .check-cell.tint-rose,  .receive.tint-rose,  .tint-panel.tint-rose  { background: #F1DEE8; }
 .section-deep.tint-butter,.check-cell.tint-butter,.receive.tint-butter,.tint-panel.tint-butter { background: #F7EDCB; }
-
-/* ---------- Founder portrait (About): appears only when the photo file exists ---------- */
-.founder-portrait { margin: 18px 0 8px; max-width: 420px; }
-.founder-portrait img { width: 100%; height: auto; display: block; border-radius: var(--radius-photo); }
