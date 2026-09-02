@@ -5,11 +5,11 @@
   "use strict";
 
   /* ------------------------------------------------------------------
-     Configuration. REQUIRED INPUT before launch:
-     - GA_MEASUREMENT_ID: GA4 measurement ID (leave empty to disable).
-     - Form endpoints are set per-form via the action attribute.
+     Configuration:
+     - GA_MEASUREMENT_ID: GA4 measurement ID (set to "" to disable analytics).
+     - Form endpoints are set per-form via the action attribute (FormSubmit).
   ------------------------------------------------------------------ */
-  var GA_MEASUREMENT_ID = ""; /* e.g. "G-XXXXXXXXXX" */
+  var GA_MEASUREMENT_ID = "G-MS76VT312E"; /* GA4 property "Blossom Garden", web stream blossomgarden.design */
 
   var reducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
 
@@ -80,6 +80,13 @@
   var declineBtn = document.querySelector("[data-consent-decline]");
   if (acceptBtn) acceptBtn.addEventListener("click", function () { setConsent("granted"); });
   if (declineBtn) declineBtn.addEventListener("click", function () { setConsent("denied"); });
+  document.querySelectorAll("[data-consent-change]").forEach(function (el) {
+    el.addEventListener("click", function (e) {
+      e.preventDefault();
+      try { localStorage.removeItem(CONSENT_KEY); } catch (err) { /* ignore */ }
+      if (banner) { banner.classList.add("visible"); window.scrollTo({ top: document.body.scrollHeight, behavior: "smooth" }); }
+    });
+  });
 
   /* ---------- Event tracking (only fires when analytics is loaded) ---------- */
   function track(eventName, params) {

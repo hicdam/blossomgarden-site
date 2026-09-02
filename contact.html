@@ -14,7 +14,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,600;0,9..144,700;1,9..144,400&family=Plus+Jakarta+Sans:wght@400;600;700&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="assets/css/style.css?v=22">
+  <link rel="stylesheet" href="assets/css/style.css?v=23">
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
@@ -92,7 +92,7 @@
       <div class="wrap">
         <div class="grid-2" style="align-items: start; gap: clamp(32px, 4vw, 56px);">
           <div class="form-panel reveal">
-            <form data-enquiry id="enquiry-form" method="POST" action="https://REPLACE_WITH_FORM_ENDPOINT.example/f/blossom" data-thanks="thanks.html">
+            <form data-enquiry id="enquiry-form" method="POST" action="https://formsubmit.co/hello@blossomgarden.design" data-thanks="thanks.html">
               <div class="form-grid">
                 <div>
                   <label for="name">Your name</label>
@@ -157,6 +157,11 @@
                   <input type="checkbox" id="consent" name="consent" required>
                   <label for="consent">I am happy for Blossom to use these details to respond to my enquiry and, where necessary, discuss the requirement with me. See the <a href="privacy.html">privacy policy</a>.</label>
                 </div>
+                <input type="hidden" name="_subject" value="New Blossom enquiry from the website">
+                <input type="hidden" name="_next" value="https://blossomgarden.design/thanks.html">
+                <input type="hidden" name="_template" value="table">
+                <input type="hidden" name="_captcha" value="false">
+                <input type="text" name="_honey" style="display:none" tabindex="-1" autocomplete="off" aria-hidden="true">
                 <input type="hidden" name="utm_source"><input type="hidden" name="utm_medium">
                 <input type="hidden" name="utm_campaign"><input type="hidden" name="utm_content">
                 <input type="hidden" name="landing_page"><input type="hidden" name="referrer">
@@ -235,6 +240,6 @@
     </div>
   </div>
 
-  <script src="assets/js/main.js?v=22"></script>
+  <script src="assets/js/main.js?v=23"></script>
 </body>
 </html>

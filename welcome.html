@@ -33,7 +33,7 @@
       <div class="wrap-narrow">
         <div class="form-panel">
           <span class="eyebrow">What can Blossom help with?</span>
-          <form data-enquiry id="qr-enquiry" method="POST" action="https://REPLACE_WITH_FORM_ENDPOINT.example/f/blossom" data-thanks="thanks.html">
+          <form data-enquiry id="qr-enquiry" method="POST" action="https://formsubmit.co/hello@blossomgarden.design" data-thanks="thanks.html">
             <div class="form-grid">
               <div>
                 <label for="name">Your name</label>
@@ -61,6 +61,11 @@
                 <input type="checkbox" id="consent" name="consent" required>
                 <label for="consent">I am happy for Blossom to use these details to respond to my enquiry. <a href="privacy.html">Privacy policy</a>.</label>
               </div>
+              <input type="hidden" name="_subject" value="New Blossom enquiry (print or QR)">
+              <input type="hidden" name="_next" value="''' + templates.DOMAIN + '''/thanks.html">
+              <input type="hidden" name="_template" value="table">
+              <input type="hidden" name="_captcha" value="false">
+              <input type="text" name="_honey" style="display:none" tabindex="-1" autocomplete="off" aria-hidden="true">
               <input type="hidden" name="utm_source"><input type="hidden" name="utm_medium">
               <input type="hidden" name="utm_campaign"><input type="hidden" name="utm_content">
               <input type="hidden" name="landing_page"><input type="hidden" name="referrer">
