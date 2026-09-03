@@ -16,11 +16,23 @@
   /* ---------- Mobile navigation ---------- */
   var toggle = document.querySelector(".nav-toggle");
   var menu = document.querySelector(".mobile-menu");
+  var navBar = document.querySelector(".nav-bar");
   if (toggle && menu) {
+    /* The menu is taller than a phone screen, and it sits inside a sticky or
+       fixed header, so it cannot be reached by scrolling the page. Give it the
+       exact space left below the bar and let it scroll inside itself. */
+    var sizeMenu = function () {
+      if (!menu.classList.contains("open")) return;
+      var barBottom = navBar ? navBar.getBoundingClientRect().bottom : 0;
+      menu.style.maxHeight = Math.max(200, window.innerHeight - barBottom) + "px";
+    };
     toggle.addEventListener("click", function () {
       var open = menu.classList.toggle("open");
       toggle.setAttribute("aria-expanded", open ? "true" : "false");
+      if (open) { sizeMenu(); } else { menu.style.maxHeight = ""; }
     });
+    window.addEventListener("resize", sizeMenu);
+    window.addEventListener("orientationchange", sizeMenu);
   }
 
   /* ---------- Scroll reveal ---------- */

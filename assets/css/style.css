@@ -35,6 +35,7 @@
   --section-y: clamp(48px, 6vw, 84px);
   --radius: 6px;
   --radius-photo: 12px;
+  --nav-h: 98px;               /* logo 78px + 10px padding top and bottom */
 }
 
 /* ---------- Reset & base ---------- */
@@ -246,7 +247,7 @@ strong { font-weight: 700; color: var(--ink); }
 .nav-links a:hover, .nav-links a[aria-current="page"] { color: var(--yew); }
 .nav-links a[aria-current="page"] { border-bottom: 2px solid var(--yew); padding-bottom: 3px; }
 
-.nav-cta { display: none; }
+.nav-bar .nav-cta { display: none; }
 
 .nav-toggle {
   display: inline-flex; align-items: center; gap: 8px;
@@ -258,7 +259,7 @@ strong { font-weight: 700; color: var(--ink); }
 
 @media (min-width: 1060px) {
   .nav-links { display: flex; }
-  .nav-cta { display: inline-flex; }
+  .nav-bar .nav-cta { display: inline-flex; }
   .nav-toggle { display: none; }
 }
 
@@ -273,6 +274,13 @@ body[data-nav="overlay"] .site-header.scrolled .nav-links a, body[data-nav="over
   border-top: 1px solid var(--hairline-soft);
   background: var(--parchment);
   padding: 12px clamp(20px, 4vw, 48px) 28px;
+  /* The header is sticky or fixed, so the menu cannot be reached by scrolling
+     the page. Keep it inside the screen and let it scroll on its own. */
+  max-height: calc(100vh - var(--nav-h));
+  max-height: calc(100dvh - var(--nav-h));
+  overflow-y: auto;
+  overscroll-behavior: contain;
+  -webkit-overflow-scrolling: touch;
 }
 .mobile-menu.open { display: block; }
 .mobile-menu ul { list-style: none; margin: 0; padding: 0; max-width: none; }
@@ -353,16 +361,16 @@ body[data-nav="overlay"] .site-header.scrolled .nav-links a, body[data-nav="over
 /* Inner page hero: full-bleed photo band */
 .page-hero { position: relative; overflow: hidden; min-height: 52vh; display: flex; align-items: flex-end; }
 .page-hero .shade { position: absolute; inset: 0; z-index: 1; background: linear-gradient(to top, rgba(16,23,20,.84), rgba(16,23,20,.16) 62%); }
-.page-hero .inner { position: relative; z-index: 2; padding: 44px 0 clamp(36px, 5vh, 56px); width: 100%; }
+.page-hero .inner { position: relative; z-index: 2; padding-top: 44px; padding-bottom: clamp(36px, 5vh, 56px); width: 100%; }
 .page-hero h1 { color: var(--parchment); font-size: clamp(36px, 4.6vw, 56px); max-width: 15em; }
 .page-hero .eyebrow { color: var(--gold); }
 .page-hero .standfirst { color: rgba(253,251,240,.88); max-width: 44em; margin-bottom: 10px; }
 .page-hero .btn-row { margin-top: 14px; }
 
 /* Full-bleed dark hero (homepage, approved L2) */
-.hero-full { position: relative; overflow: hidden; min-height: 96vh; display: flex; align-items: flex-end; }
+.hero-full { position: relative; overflow: hidden; min-height: 96vh; display: flex; align-items: flex-end; padding-top: calc(var(--nav-h) + 12px); }
 .hero-full .shade { position: absolute; inset: 0; z-index: 1; background: linear-gradient(to top, rgba(16,23,20,.86), rgba(16,23,20,.12) 60%); }
-.hero-full .inner { position: relative; z-index: 2; padding: 0 0 9vh; width: 100%; }
+.hero-full .inner { position: relative; z-index: 2; padding-top: 0; padding-bottom: 9vh; width: 100%; }
 .hero-full h1 { color: var(--parchment); font-size: clamp(42px, 6.5vw, 78px); max-width: 13em; }
 .hero-full .eyebrow { color: var(--gold); }
 .hero-full .standfirst { color: rgba(253,251,240,.88); max-width: 46ch; }
@@ -616,6 +624,8 @@ textarea { min-height: 110px; resize: vertical; }
 }
 .site-footer ul { list-style: none; padding: 0; margin: 0; }
 .site-footer li { margin-bottom: 10px; }
+.site-footer li a { display: inline-block; padding: 8px 0; }
+@media (min-width: 820px) { .site-footer li a { display: inline; padding: 0; } }
 .footer-legal {
   display: flex; flex-wrap: wrap; gap: 10px 26px;
   padding-top: 26px; font-size: 13.5px; color: var(--ink-soft);
@@ -631,13 +641,18 @@ textarea { min-height: 110px; resize: vertical; }
   border: 1px solid var(--hairline);
   border-radius: var(--radius-photo);
   box-shadow: 0 10px 40px rgba(44, 57, 71, .22);
-  padding: 22px 24px;
+  padding: 18px;
   display: none;
 }
 .cookie-banner.visible { display: block; }
 .cookie-banner p { font-size: 14px; margin-bottom: 14px; }
-.cookie-actions { display: flex; gap: 10px; flex-wrap: wrap; }
-.cookie-actions .btn { padding: 10px 18px; font-size: 14px; }
+.cookie-actions { display: flex; gap: 8px; flex-wrap: wrap; }
+.cookie-actions .btn { padding: 10px 16px; font-size: 14px; }
+@media (min-width: 480px) {
+  .cookie-banner { padding: 22px 24px; }
+  .cookie-actions { gap: 10px; }
+  .cookie-actions .btn { padding: 10px 18px; }
+}
 
 /* ---------- Scroll reveal ---------- */
 
