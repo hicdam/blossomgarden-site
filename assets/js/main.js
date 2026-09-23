@@ -13,26 +13,65 @@
 
   var reducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
 
-  /* ---------- Mobile navigation ---------- */
-  var toggle = document.querySelector(".nav-toggle");
-  var menu = document.querySelector(".mobile-menu");
-  var navBar = document.querySelector(".nav-bar");
+  /* ---------- Shared responsive navigation ---------- */
+  var toggle = document.querySelector('.nav-toggle');
+  var menu = document.querySelector('.mobile-menu');
+  var navBar = document.querySelector('.nav-bar');
+  var desktopNav = window.matchMedia('(min-width: 1200px)');
   if (toggle && menu) {
-    /* The menu is taller than a phone screen, and it sits inside a sticky or
-       fixed header, so it cannot be reached by scrolling the page. Give it the
-       exact space left below the bar and let it scroll inside itself. */
-    var sizeMenu = function () {
-      if (!menu.classList.contains("open")) return;
-      var barBottom = navBar ? navBar.getBoundingClientRect().bottom : 0;
-      menu.style.maxHeight = Math.max(200, window.innerHeight - barBottom) + "px";
-    };
-    toggle.addEventListener("click", function () {
-      var open = menu.classList.toggle("open");
-      toggle.setAttribute("aria-expanded", open ? "true" : "false");
-      if (open) { sizeMenu(); } else { menu.style.maxHeight = ""; }
+    function sizeMenu() {
+      if (menu.hidden) return;
+      var bottom = navBar.getBoundingClientRect().bottom;
+      menu.style.maxHeight = Math.max(0, window.innerHeight - bottom) + 'px';
+    }
+    function closeMenu(returnFocus) {
+      menu.hidden = true;
+      menu.classList.remove('open');
+      menu.style.maxHeight = '';
+      toggle.setAttribute('aria-expanded', 'false');
+      toggle.textContent = 'Menu';
+      document.body.classList.remove('nav-open');
+      if (returnFocus) toggle.focus();
+    }
+    toggle.addEventListener('click', function () {
+      if (!menu.hidden) { closeMenu(false); return; }
+      menu.hidden = false;
+      menu.classList.add('open');
+      toggle.setAttribute('aria-expanded', 'true');
+      toggle.textContent = 'Close';
+      document.body.classList.add('nav-open');
+      sizeMenu();
     });
-    window.addEventListener("resize", sizeMenu);
-    window.addEventListener("orientationchange", sizeMenu);
+    menu.addEventListener('click', function (e) {
+      if (e.target.closest('a')) closeMenu(false);
+    });
+    document.addEventListener('click', function (e) {
+      if (!menu.hidden && !e.target.closest('.site-header')) closeMenu(false);
+    });
+    document.addEventListener('keydown', function (e) {
+      if (menu.hidden) return;
+      if (e.key === 'Escape') { closeMenu(true); return; }
+      if (e.key === 'Tab') {
+        var nodes = Array.from(document.querySelector('.site-header').querySelectorAll('a, button, summary')).filter(function (el) { return el.getClientRects().length; });
+        var first = nodes[0], last = nodes[nodes.length - 1];
+        if (e.shiftKey && document.activeElement === first) { e.preventDefault(); last.focus(); }
+        else if (!e.shiftKey && document.activeElement === last) { e.preventDefault(); first.focus(); }
+      }
+    });
+    window.addEventListener('resize', function () { if (desktopNav.matches) closeMenu(false); else sizeMenu(); });
+    window.addEventListener('pageshow', function () { closeMenu(false); });
+  }
+  // One content source: fuller on desktop, expandable after the mobile shortcuts.
+  var homeMore = document.querySelector('.home-more');
+  var fullHome = window.matchMedia('(min-width: 760px)');
+  if (homeMore) {
+    function syncHome() { homeMore.open = fullHome.matches; }
+    syncHome();
+    fullHome.addEventListener('change', syncHome);
+    document.querySelectorAll('a[href="#homeowners"]').forEach(function (a) {
+      a.addEventListener('click', function () { homeMore.open = true; });
+    });
+    if (window.location.hash === '#homeowners') homeMore.open = true;
   }
 
   /* ---------- Scroll reveal ---------- */
