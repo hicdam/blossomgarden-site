@@ -10,7 +10,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,600;0,9..144,700;1,9..144,400&family=Plus+Jakarta+Sans:wght@400;600;700&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="assets/css/style.css?v=26">
+  <link rel="stylesheet" href="assets/css/style.css?v=27">
 </head>
 <body class="landing">
   <a class="skip-link" href="#book">Skip to enquiry form</a>
@@ -19,12 +19,12 @@
     <section class="landing-hero">
       <div class="wrap-narrow">
         <img class="brand-mark" src="assets/img/logo-lockup.png" alt="Blossom logo" width="220" height="145">
-        <span class="eyebrow" style="margin-bottom: 10px;">Complete Garden Management</span>
-        <h1>Everything your garden needs. One number to call.</h1>
-        <p class="standfirst" style="margin-left: auto; margin-right: auto;">Planting, landscaping, garden buildings, outdoor living, maintenance or a complete transformation. Tell Blossom what you want from the garden and we will organise what it takes.</p>
+        <span class="eyebrow" style="margin-bottom: 10px;">Garden buildings &amp; landscaping</span>
+        <h1>Garden buildings, decking, gates &amp; fencing.</h1>
+        <p class="standfirst" style="margin-left: auto; margin-right: auto;">Tell us what you would like to build. We deliver hard landscaping across Surrey, Hampshire and Sussex.</p>
         <div class="btn-row" style="justify-content: center;">
           <a class="btn btn-primary" href="#book">Tell us what your garden needs</a>
-          <a class="cta-link" data-event="book_review_click" href="#book">Tell us about your garden</a>
+
         </div>
       </div>
     </section>
@@ -49,20 +49,14 @@
               </div>
               <div>
                 <label for="help_with">What can Blossom help with?</label>
-                <select id="help_with" name="help_with">
-                  <option>I want to improve the garden</option>
-                  <option>I have a specific project in mind</option>
-                  <option>I need somebody to manage existing work</option>
-                  <option>I want ongoing garden management</option>
-                  <option>I am not sure where to start</option>
-                </select>
+                <select id="help_with" name="help_with"><option>Not sure yet</option><option>Garden building</option><option>Decking</option><option>Gates</option><option>Fencing</option><option>Other landscaping</option></select>
               </div>
               <div class="span-2 consent-row">
                 <input type="checkbox" id="consent" name="consent" required>
                 <label for="consent">I am happy for Blossom to use these details to respond to my enquiry. <a href="privacy.html">Privacy policy</a>.</label>
               </div>
               <input type="hidden" name="_subject" value="New Blossom enquiry (print or QR)">
-              <input type="hidden" name="_next" value="''' + templates.DOMAIN + '''/thanks.html">
+              <input type="hidden" name="_next" value="https://blossomgarden.design/thanks.html">
               <input type="hidden" name="_template" value="table">
               <input type="hidden" name="_captcha" value="false">
               <input type="text" name="_honey" style="display:none" tabindex="-1" autocomplete="off" aria-hidden="true">
@@ -79,9 +73,9 @@
         <div style="margin-top: 36px;">
           <h2 style="font-size: clamp(24px, 5vw, 30px);">You decide the outcome. We manage the detail.</h2>
           <ul class="check-list">
-            <li>We understand the garden and establish the right plan.</li>
-            <li>We source and coordinate the specialists the work requires.</li>
-            <li>We manage delivery, quality and what happens next.</li>
+            <li>We agree what you need and what it will cost.</li>
+            <li>We organise the people and materials.</li>
+            <li>We keep you updated and check the finished work.</li>
           </ul>
           <p class="smallprint">Serving Surrey, Hampshire and Sussex.</p>
           <p><a href="index.html">Explore the full website</a></p>
@@ -110,6 +104,6 @@
     </div>
   </div>
 
-  <script src="assets/js/main.js?v=26"></script>
+  <script src="assets/js/main.js?v=27"></script>
 </body>
 </html>

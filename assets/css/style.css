@@ -826,3 +826,41 @@ body.nav-open { overflow: hidden; }
   .contact-page .page-hero .standfirst { font-size: 16px; }
 }
 @media print { .mobile-action-bar, .mobile-shortcuts { display: none !important; } }
+
+/* Short service pages and direct enquiry journey */
+.simple-hero { min-height: 0; }
+.simple-hero .inner { padding-block: 48px; }
+.simple-hero .shade { background: rgba(16,23,20,.68); }
+.simple-hero h1 { max-width: 22ch; }
+.simple-hero .standfirst { max-width: 42em; }
+.simple-section { padding-block: 40px; }
+.simple-cards { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 28px; margin-top: 24px; }
+.core-services { grid-template-columns: repeat(4, minmax(0, 1fr)); }
+.simple-cards article { min-width: 0; scroll-margin-top: calc(var(--nav-h) + 24px); }
+.simple-cards h3 { font-size: 1.35rem; }
+.simple-cards a { text-underline-offset: 4px; }
+.simple-note { margin-top: 24px; }
+.simple-images { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 20px; padding-block: 20px; }
+.simple-images figure { margin: 0; }
+.simple-images img { display: block; width: 100%; height: auto; aspect-ratio: 4 / 3; object-fit: cover; }
+.simple-founder { display: grid; grid-template-columns: minmax(180px, 300px) 1fr; gap: 32px; align-items: start; }
+.simple-founder figure { margin: 0; }
+.simple-founder img { width: 100%; height: auto; }
+.simple-details, .simple-faq details { padding: 16px 0; border-block-end: 1px solid var(--hairline); }
+.simple-details summary, .simple-faq summary { cursor: pointer; font-weight: 600; padding: 6px 0; }
+.simple-details[open] > .form-grid { margin-top: 20px; }
+#enquiry-form { scroll-margin-top: calc(var(--nav-h) + 24px); }
+@media(max-width: 999px) { .core-services { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
+@media(max-width: 759px) {
+ .simple-hero .inner { padding-block: 28px; }
+ .simple-hero h1 { font-size: clamp(30px, 8vw, 40px); }
+ .simple-hero .standfirst { font-size: 1rem; }
+ .simple-section { padding-block: 28px; }
+ .simple-cards { grid-template-columns: 1fr; gap: 18px; }
+ .simple-cards p { margin-bottom: 8px; }
+ .simple-images { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 12px; }
+ .simple-founder { grid-template-columns: 1fr; gap: 20px; }
+ .simple-founder figure { max-width: 280px; }
+ .simple-hero .btn, .mobile-action-bar .btn { width: 100%; text-align: center; }
+ .contact-page .simple-hero { padding-block: 0; }
+}
