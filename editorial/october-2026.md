@@ -1,7 +1,7 @@
 # October in the garden: a little preparation before winter
 
-Status: Draft for review. Not published or linked from the site.
-Proposed publication window: early October 2026. Exact date to be agreed.
+Status: Scheduled for publication on 1 October 2026 under the monthly publishing instruction. Not yet published or linked from the site.
+Publication date: 1 October 2026 (Europe/London). Homepage hero: 1–7 October. Maintenance feature: from 8 October until the next monthly handover.
 Target URL: journal-october-2026.html
 Image: assets/img/journal-stock/garden-tools-1440-v2.webp
 Small image: assets/img/journal-stock/garden-tools-720.webp
@@ -36,7 +36,8 @@ Walk around the garden and write a short list:
 - Borders to care for.
 - Plants to protect.
 - Any areas that stay unusually wet.
- If you need help, Blossom can agree a seasonal tidy-up or regular maintenance around the jobs your garden needs.
+
+If you need help, Blossom can agree a seasonal tidy-up or regular maintenance around the jobs your garden needs.
 
 Call to action: Explore garden maintenance → garden-maintenance.html
 Enquiry: Discuss maintenance → contact.html?service=maintenance#enquiry-form
@@ -59,11 +60,12 @@ Checked 24 September 2026. These support the gardening advice; they do not imply
 
 ## Publication checklist
 
-- Approve the copy and actual publication date.
+- Publish on 1 October 2026; verify the source-supported advice before publishing.
 - Build journal-october-2026.html using the current monthly article template, approved copy and supplied stock image above. Use the journal-article class, clear h2 subheadings, short paragraphs and a visible checklist; retain the context and advice.
 - Use the actual date in the page and journal card; update metadata and sitemap.
 - Add October as the first monthly journal card. Keep the September article accessible.
-- Update the marked monthly-journal-feature block on garden-maintenance.html to the October title, summary, image and link only once the article is live.
+- Feature October in the marked homepage hero on 1–7 October, saving the current default hero before replacement.
+- On 8 October, restore the default homepage hero and replace the maintenance monthly-journal-feature with October. Keep the previous maintenance feature until this handover.
 - Include the maintenance service and enquiry links in the article.
 - Verify image decoding at both sizes, links and published page.
 - No captions, oversized first letters, forced line breaks, invented project claims or unsupported figures.
