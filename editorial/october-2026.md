@@ -61,7 +61,7 @@ Checked 24 September 2026. These support the gardening advice; they do not imply
 ## Publication checklist
 
 - Publish on 1 October 2026; verify the source-supported advice before publishing.
-- Build journal-october-2026.html using the current monthly article template, approved copy and supplied stock image above. Use the journal-article class, clear h2 subheadings, short paragraphs and a visible checklist; retain the context and advice.
+- Build journal-october-2026.html using the current monthly article template, approved copy and supplied stock image above. Use the journal-article class and journal-sections grid with a journal-topic section for each h2 and its copy. Keep the introduction and enquiry full-width. Use short paragraphs and a visible checklist; retain the context and advice.
 - Use the actual date in the page and journal card; update metadata and sitemap.
 - Add October as the first monthly journal card. Keep the September article accessible.
 - Feature October in the marked homepage hero on 1–7 October, saving the current default hero before replacement.
