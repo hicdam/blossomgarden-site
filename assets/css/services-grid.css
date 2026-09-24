@@ -5,3 +5,8 @@
 .services-extra { margin-top: 24px; }
 @media (max-width: 999px) { .simple-cards.services-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
 @media (max-width: 599px) { .simple-cards.services-grid { grid-template-columns: 1fr; gap: 16px; } }
+
+.services-grid article:nth-child(4n + 1) { background: #E2EAD9; border-color: #C7D3BA; }
+.services-grid article:nth-child(4n + 2) { background: #F1E1DE; border-color: #DFC7C2; }
+.services-grid article:nth-child(4n + 3) { background: #EFE4CA; border-color: #DBCEAD; }
+.services-grid article:nth-child(4n) { background: #DFE8EB; border-color: #C3D3D9; }
