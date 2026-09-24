@@ -857,3 +857,23 @@ body.nav-open { overflow: hidden; }
  .simple-hero .btn, .mobile-action-bar .btn { width: 100%; text-align: center; }
  .contact-page .simple-hero { padding-block: 0; }
 }
+
+/* Journal articles: visible sections and practical checklists. */
+.journal-article { max-width: 880px; }
+.journal-article > h2 {
+  font-size: clamp(23px, 2.6vw, 29px);
+  line-height: 1.25;
+  margin: 1.65em 0 .6em;
+  text-wrap: wrap;
+}
+.journal-article > p { margin-bottom: 1em; }
+.journal-article > p:first-child { font-size: 1.08em; }
+.journal-article .journal-checklist {
+  padding: clamp(18px, 3vw, 28px) clamp(22px, 4vw, 36px) clamp(18px, 3vw, 28px) clamp(38px, 5vw, 52px);
+  margin: 1em 0 1.5em;
+  background: #e4ebd9;
+  border-radius: 10px;
+}
+.journal-article .journal-checklist li { padding-left: .25em; margin: 0 0 .8em; }
+.journal-article .journal-checklist li:last-child { margin-bottom: 0; }
+.journal-article .journal-checklist li::marker { color: #29483b; }

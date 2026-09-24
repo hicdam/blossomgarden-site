@@ -30,7 +30,13 @@ There is no need to strip every border bare. Standing stems can provide winter s
 
 ### Make the next visit count
 
-Walk around the garden and write a short list: leaves to clear, borders to care for, plants to protect and any areas that stay unusually wet. If you need help, Blossom can agree a seasonal tidy-up or regular maintenance around the jobs your garden needs.
+Walk around the garden and write a short list:
+
+- Leaves to clear.
+- Borders to care for.
+- Plants to protect.
+- Any areas that stay unusually wet.
+ If you need help, Blossom can agree a seasonal tidy-up or regular maintenance around the jobs your garden needs.
 
 Call to action: Explore garden maintenance → garden-maintenance.html
 Enquiry: Discuss maintenance → contact.html?service=maintenance#enquiry-form
@@ -54,7 +60,7 @@ Checked 24 September 2026. These support the gardening advice; they do not imply
 ## Publication checklist
 
 - Approve the copy and actual publication date.
-- Build journal-october-2026.html using the current monthly article template, approved copy and supplied stock image above.
+- Build journal-october-2026.html using the current monthly article template, approved copy and supplied stock image above. Use the journal-article class, clear h2 subheadings, short paragraphs and a visible checklist; retain the context and advice.
 - Use the actual date in the page and journal card; update metadata and sitemap.
 - Add October as the first monthly journal card. Keep the September article accessible.
 - Update the marked monthly-journal-feature block on garden-maintenance.html to the October title, summary, image and link only once the article is live.
