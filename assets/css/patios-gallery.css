@@ -8,3 +8,5 @@
 }
 
 .simple-images.planning-gallery { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+
+#main p, #main h1, #main h2, #main h3 { max-width: none; }
