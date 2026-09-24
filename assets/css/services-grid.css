@@ -11,3 +11,6 @@
 .services-grid article:nth-child(4n + 3) { background: #EFE4CA; border-color: #DBCEAD; }
 .services-grid article:nth-child(4n) { background: #DFE8EB; border-color: #C3D3D9; }
 @media (min-width: 1000px) { .simple-cards.services-grid.standards-grid { grid-template-columns: repeat(3, minmax(0, 1fr)); } }
+
+@media (min-width: 1000px) { .simple-cards.services-grid.partners-grid { grid-template-columns: repeat(3, minmax(0, 1fr)); } }
+.partners-page #main p, .partners-page #main h1, .partners-page #main h2, .partners-page #main h3 { max-width: none; }
