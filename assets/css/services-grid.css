@@ -14,3 +14,5 @@
 
 @media (min-width: 1000px) { .simple-cards.services-grid.partners-grid { grid-template-columns: repeat(3, minmax(0, 1fr)); } }
 .partners-page #main p, .partners-page #main h1, .partners-page #main h2, .partners-page #main h3 { max-width: none; }
+
+@media (min-width: 1000px) { .simple-cards.services-grid.steps-grid { grid-template-columns: repeat(3, minmax(0, 1fr)); } }
