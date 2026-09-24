@@ -890,3 +890,12 @@ body.nav-open { overflow: hidden; }
 @media (max-width: 759px) {
   .journal-sections { grid-template-columns: minmax(0, 1fr); gap: 24px; }
 }
+
+/* Contextual supplied photographs within journal topics. */
+.journal-topic-image { margin: 20px 0 0; }
+.journal-topic-image img {
+  width: 100%;
+  height: clamp(180px, 17vw, 230px);
+  object-fit: cover;
+  border-radius: 8px;
+}

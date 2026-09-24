@@ -5,6 +5,9 @@
     "articles": [
       "journal-garden-drainage-problems.html",
       "journal-july-2026.html"
+    ],
+    "inline_articles": [
+      "journal-may-2026.html"
     ]
   },
   "garden-tools": {
@@ -13,6 +16,11 @@
     "articles": [
       "journal-april-2026.html",
       "journal-choose-maintenance-gardener.html"
+    ],
+    "inline_articles": [
+      "journal-annual-garden-operating-plan.html",
+      "journal-complete-garden-management.html",
+      "journal-garden-manager-vs-gardener.html"
     ]
   },
   "lavender-borders": {
@@ -20,6 +28,10 @@
     "alt": "Gravel paths between flowering lavender borders",
     "articles": [
       "journal-june-2026.html"
+    ],
+    "inline_articles": [
+      "journal-august-2026.html",
+      "journal-september-2026.html"
     ]
   },
   "timber-building": {
@@ -27,6 +39,10 @@
     "alt": "Timber-clad building beside a planted border",
     "articles": [
       "journal-compare-garden-room-suppliers.html"
+    ],
+    "inline_articles": [
+      "journal-garden-office-planning-permission.html",
+      "journal-running-costs-pools-ponds-buildings.html"
     ]
   },
   "daisies": {
@@ -41,6 +57,10 @@
     "alt": "Tiled garden steps between planted terraces",
     "articles": [
       "journal-inspect-before-paying-landscaper.html"
+    ],
+    "inline_articles": [
+      "journal-garden-drainage-problems.html",
+      "journal-landscaping-quotation.html"
     ]
   },
   "planted-path": {
@@ -48,6 +68,9 @@
     "alt": "Stone steps winding through planted borders",
     "articles": [
       "journal-september-2026.html"
+    ],
+    "inline_articles": [
+      "journal-prepare-garden-for-sale.html"
     ]
   },
   "planting-plan": {
@@ -57,6 +80,11 @@
       "journal-annual-garden-operating-plan.html",
       "journal-garden-manager-vs-gardener.html",
       "journal-manage-garden-transformation.html"
+    ],
+    "inline_articles": [
+      "journal-autumn-winter-planning.html",
+      "journal-garden-supplier-network.html",
+      "journal-phase-large-garden.html"
     ]
   },
   "evening-pergola": {
@@ -72,6 +100,10 @@
     "articles": [
       "journal-complete-garden-management.html",
       "journal-phase-large-garden.html"
+    ],
+    "inline_articles": [
+      "journal-choose-maintenance-gardener.html",
+      "journal-year-round-garden.html"
     ]
   },
   "garden-lighting": {
@@ -95,6 +127,10 @@
       "journal-garden-office-planning-permission.html",
       "journal-garden-supplier-network.html",
       "journal-landscaping-quotation.html"
+    ],
+    "inline_articles": [
+      "journal-compare-garden-room-suppliers.html",
+      "journal-manage-garden-transformation.html"
     ]
   },
   "terraced-garden": {
@@ -102,6 +138,10 @@
     "alt": "Garden terrace with paving, seating and planted borders",
     "articles": [
       "journal-prepare-garden-for-sale.html"
+    ],
+    "inline_articles": [
+      "journal-inspect-before-paying-landscaper.html",
+      "journal-june-2026.html"
     ]
   },
   "flowering-pots": {
@@ -109,6 +149,10 @@
     "alt": "Colourful flowering pots arranged along a garden wall",
     "articles": [
       "journal-august-2026.html"
+    ],
+    "inline_articles": [
+      "journal-april-2026.html",
+      "journal-july-2026.html"
     ]
   }
 }
