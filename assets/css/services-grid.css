@@ -1,0 +1,7 @@
+.simple-cards.services-grid { grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 20px; }
+.services-grid article { display: flex; flex-direction: column; padding: 20px; border: 1px solid var(--hairline); border-radius: 8px; }
+.services-grid article > a { margin-top: auto; }
+.services-grid article > p:last-child { margin-bottom: 0; }
+.services-extra { margin-top: 24px; }
+@media (max-width: 999px) { .simple-cards.services-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
+@media (max-width: 599px) { .simple-cards.services-grid { grid-template-columns: 1fr; gap: 16px; } }
