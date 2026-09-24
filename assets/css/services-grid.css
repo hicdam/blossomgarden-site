@@ -16,3 +16,12 @@
 .partners-page #main p, .partners-page #main h1, .partners-page #main h2, .partners-page #main h3 { max-width: none; }
 
 @media (min-width: 1000px) { .simple-cards.services-grid.steps-grid { grid-template-columns: repeat(3, minmax(0, 1fr)); } }
+
+/* Five main services: balanced rows, including garden maintenance. */
+.primary-services > article:nth-child(5) { background: #E8E2ED; border-color: #D2C7DC; }
+@media (min-width: 1000px) {
+ .simple-cards.services-grid.primary-services { grid-template-columns: repeat(6, minmax(0, 1fr)); }
+ .primary-services > article { grid-column: span 2; }
+ .primary-services > article:nth-child(n+4) { grid-column: span 3; }
+}
+@media (min-width: 600px) and (max-width: 999px) { .primary-services > article:last-child { grid-column: 1 / -1; } }

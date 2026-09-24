@@ -175,7 +175,7 @@
 
   /* Carry the selected service into the enquiry form. */
   var serviceField = document.querySelector('select[name="help_with"]');
-  var serviceNames = { "garden-buildings": "Garden building", "decking": "Decking", "gates": "Gates", "fencing": "Fencing" };
+  var serviceNames = { "garden-buildings": "Garden building", "decking": "Decking", "gates": "Gates", "fencing": "Fencing", "maintenance": "Garden maintenance" };
   var chosenService = new URLSearchParams(window.location.search).get("service");
   if (serviceField && serviceNames[chosenService]) serviceField.value = serviceNames[chosenService];
 
