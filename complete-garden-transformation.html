@@ -15,6 +15,40 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,600;0,9..144,700;1,9..144,400&family=Plus+Jakarta+Sans:wght@400;600;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="assets/css/style.css?v=27">
+  <link rel="stylesheet" href="assets/css/services-grid.css?v=6">
+  <style>
+    .transformation-page .transformation-section { padding-block: 48px; }
+    .transformation-page .transformation-section h2 { margin: 0 0 24px; }
+    .transformation-page .transformation-cards { grid-template-columns: repeat(3, minmax(0, 1fr)); margin: 0; gap: 20px; }
+    .transformation-page .transformation-cards article { padding: 24px; }
+    .transformation-page .transformation-cards h3 { margin: 0 0 12px; }
+    .transformation-page .transformation-cards p { margin: 0; }
+    .transformation-page .transformation-costs { padding-block: 0 48px; }
+    .transformation-page .cost-panel { display: grid; grid-template-columns: 1fr 1.4fr; gap: 40px; padding: 32px; background: #DFE8EB; border: 1px solid #C3D3D9; border-radius: 8px; }
+    .transformation-page .cost-panel h2 { margin: 0 0 16px; }
+    .transformation-page .cost-range { font-family: 'Fraunces', serif; font-size: clamp(28px, 3vw, 38px); font-weight: 600; margin: 0 0 8px; }
+    .transformation-page .cost-panel p:last-child { margin-bottom: 0; }
+    .transformation-page .cost-details p:first-child { margin-top: 0; }
+    .transformation-page .transformation-gallery { padding: 0 0 48px; }
+    .transformation-page .transformation-gallery .simple-images { padding: 0; grid-template-columns: repeat(3, minmax(0, 1fr)); }
+    .transformation-page .transformation-gallery img { border-radius: 8px; }
+    .transformation-page .gallery-note { margin: 12px 0 0; font-size: .875rem; }
+    .transformation-page .transformation-enquiry { padding: 0 0 48px; }
+    .transformation-page .enquiry-panel { display: flex; align-items: center; justify-content: space-between; gap: 32px; padding: 32px; background: var(--blossom-light); border: 1px solid var(--hairline-soft); border-radius: 8px; }
+    .transformation-page .enquiry-panel h2 { margin: 0 0 12px; }
+    .transformation-page .enquiry-panel p { margin: 0; max-width: 48em; }
+    .transformation-page .enquiry-panel .btn { flex-shrink: 0; }
+    @media (max-width: 759px) {
+      .transformation-page .transformation-section { padding-block: 32px; }
+      .transformation-page .transformation-cards { grid-template-columns: 1fr; gap: 16px; }
+      .transformation-page .transformation-cards article { padding: 20px; }
+      .transformation-page .cost-panel { grid-template-columns: 1fr; gap: 20px; padding: 24px; }
+      .transformation-page .transformation-costs, .transformation-page .transformation-gallery, .transformation-page .transformation-enquiry { padding-bottom: 32px; }
+      .transformation-page .transformation-gallery .simple-images { grid-template-columns: 1fr; gap: 16px; }
+      .transformation-page .enquiry-panel { flex-direction: column; align-items: stretch; padding: 24px; gap: 24px; }
+      .transformation-page .enquiry-panel .btn { text-align: center; white-space: normal; }
+    }
+  </style>
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
@@ -45,12 +79,30 @@
   }
   </script>
 </head>
-<body>
+<body class="transformation-page">
   <a class="skip-link" href="#main">Skip to content</a>
 
   <header class="site-header"><div class="nav-bar"><a class="brand" href="index.html" aria-label="Blossom, home"><img src="assets/img/logo-lockup.png" alt="Blossom" height="78"></a><nav class="desktop-nav" aria-label="Main"><ul class="nav-links"><li><a href="garden-management.html">Services</a></li><li><a href="projects.html">Projects</a></li><li><a href="how-it-works.html">How It Works</a></li><li><a href="architects-builders.html">Architects &amp; Builders</a></li><li><a href="about.html">About</a></li></ul></nav><a class="btn btn-primary nav-cta" data-event="book_review_click" href="contact.html#enquiry-form">Let’s talk</a><button class="nav-toggle" type="button" aria-expanded="false" aria-controls="mobile-menu">Menu</button></div><nav class="mobile-menu" id="mobile-menu" aria-label="Mobile" hidden><a class="btn btn-primary" data-event="book_review_click" href="contact.html#enquiry-form">Tell us about your project</a><ul><li><a href="garden-management.html">Services</a></li><li><a href="projects.html">Projects</a></li><li><a href="how-it-works.html">How It Works</a></li><li><a href="architects-builders.html">Architects &amp; Builders</a></li><li><a href="about.html">About</a></li></ul><details class="mobile-more"><summary>Advice and more</summary><ul><li><a href="journal.html">Garden Journal</a></li><li><a href="faq.html">Questions</a></li><li><a href="areas.html">Areas we cover</a></li><li><a href="standards.html">Our standards</a></li><li><a href="garden-services.html">All services</a></li></ul></details></nav></header>
 
-  <main id="main"><section class="page-hero simple-hero"><div class="plx-bg"><img class="" src="assets/img/projects/haslemere-pergola-planted-1440.webp" srcset="assets/img/projects/haslemere-pergola-planted-720.webp 720w, assets/img/projects/haslemere-pergola-planted-1440.webp 1440w" sizes="(max-width: 759px) 100vw, 50vw" width="1440" height="960" alt="Timber pergola and patio with surrounding garden planting" loading="eager" decoding="async"></div><div class="shade"></div><div class="inner wrap"><h1>A new garden, from start to finish.</h1><p class="standfirst">One point of contact to organise the design, people and work for your whole-garden project.</p><div class="btn-row"><a class="btn btn-primary" data-event="book_review_click" href="contact.html#enquiry-form">Tell us about your project</a></div></div></section><section class="section simple-section"><div class="wrap"><h2>Three clear stages</h2><div class="simple-cards"><article><h3>Plan your garden</h3><p>Agree the layout, features and budget, with any surveys or specialist advice needed.</p></article><article><h3>Agree the work</h3><p>Confirm suppliers, costs and timing before construction starts.</p></article><article><h3>Build and finish</h3><p>We coordinate the work, keep you updated and arrange final checks and care information.</p></article></div></div></section><section class="section simple-section"><div class="wrap"><h2>What does it cost?</h2><p>As a guide, complete transformations typically cost £30,000–£80,000 all in. Size, access, ground conditions and your choices affect the price.</p><p>We confirm your project’s costs in writing. You approve major decisions and significant changes. Appointed specialists remain responsible for their own work.</p></div></section><div class="wrap simple-images"><figure><img class="" src="assets/img/projects/headley-patio-detail-1440.webp" srcset="assets/img/projects/headley-patio-detail-720.webp 720w, assets/img/projects/headley-patio-detail-1440.webp 1440w" sizes="(max-width: 759px) 100vw, 50vw" width="1440" height="1080" alt="Patio paving and raised planted border with inset lighting" loading="lazy" decoding="async"></figure></div><section class="section simple-section"><div class="wrap"><h2>Have a project in mind?</h2><a class="btn btn-primary" data-event="book_review_click" href="contact.html#enquiry-form">Tell us about your project</a></div></section></main>
+  <main id="main"><section class="page-hero simple-hero"><div class="plx-bg"><img class="" src="assets/img/projects/haslemere-pergola-planted-1440.webp" srcset="assets/img/projects/haslemere-pergola-planted-720.webp 720w, assets/img/projects/haslemere-pergola-planted-1440.webp 1440w" sizes="100vw" width="1440" height="960" alt="Timber pergola and patio with surrounding garden planting" loading="eager" decoding="async"></div><div class="shade"></div><div class="inner wrap"><h1>A new garden, from start to finish.</h1><p class="standfirst">One point of contact to organise the design, people and work for your whole-garden project.</p><div class="btn-row"><a class="btn btn-primary" data-event="book_review_click" href="contact.html#enquiry-form">Tell us about your project</a></div></div></section>
+<section class="section transformation-section"><div class="wrap">
+  <h2>Three clear stages</h2>
+  <div class="simple-cards services-grid transformation-cards">
+    <article><h3>1. Plan your garden</h3><p>Agree the layout, features and budget, with any surveys or specialist advice needed.</p></article>
+    <article><h3>2. Agree the work</h3><p>Confirm suppliers, costs and timing before construction starts.</p></article>
+    <article><h3>3. Build and finish</h3><p>We coordinate the work, keep you updated and arrange final checks and care information.</p></article>
+  </div>
+</div></section>
+<section class="section transformation-costs"><div class="wrap"><div class="cost-panel">
+  <div><h2>What does it cost?</h2><p class="cost-range">£30,000–£80,000</p><p>A typical complete transformation, all in.</p></div>
+  <div class="cost-details"><p>This is a guide. Size, access, ground conditions and your choices affect the price.</p><p>We confirm your project’s costs in writing. You approve major decisions and significant changes. Appointed specialists remain responsible for their own work.</p></div>
+</div></div></section>
+<section class="transformation-gallery" aria-label="Garden design inspiration"><div class="wrap"><div class="simple-images">
+<figure><img src="assets/img/projects/headley-patio-detail-1440.webp" srcset="assets/img/projects/headley-patio-detail-720.webp 720w, assets/img/projects/headley-patio-detail-1440.webp 1440w" sizes="(max-width: 759px) 100vw, 33vw" width="1440" height="1080" alt="Patio paving and raised planted border with inset lighting" loading="lazy" decoding="async"></figure>
+<figure><img src="assets/img/projects/haslemere-pergola-planted-1440.webp" srcset="assets/img/projects/haslemere-pergola-planted-720.webp 720w, assets/img/projects/haslemere-pergola-planted-1440.webp 1440w" sizes="(max-width: 759px) 100vw, 33vw" width="1440" height="1080" alt="Timber pergola and patio with surrounding garden planting" loading="lazy" decoding="async"></figure>
+<figure><img src="assets/img/projects/contemporary-garden-room-1440.webp" srcset="assets/img/projects/contemporary-garden-room-720.webp 720w, assets/img/projects/contemporary-garden-room-1440.webp 1440w" sizes="(max-width: 759px) 100vw, 33vw" width="1440" height="1080" alt="Dark-clad garden room beside a lawn and paved garden path" loading="lazy" decoding="async"></figure>
+</div><p class="gallery-note">Design visualisations to help you explore the possibilities.</p></div></section>
+<section class="section transformation-enquiry"><div class="wrap"><div class="enquiry-panel"><div><h2>Have a project in mind?</h2><p>Let’s talk about your garden and what you’d like to change. We can also arrange <a href="garden-maintenance.html">ongoing maintenance</a> once the work is complete.</p></div><a class="btn btn-primary" data-event="book_review_click" href="contact.html#enquiry-form">Tell us about your project</a></div></div></section></main>
 
   <footer class="site-footer"><div class="wrap"><div class="footer-grid"><div class="footer-brand"><div class="footer-logo"><img src="assets/img/logo-lockup.png" alt="Blossom logo"></div><p>Garden buildings, hard landscaping and maintenance across Surrey, Hampshire and Sussex.</p></div><div><h4>Services</h4><ul><li><a href="garden-management.html#garden-buildings">Garden buildings</a></li><li><a href="garden-management.html#decking">Decking</a></li><li><a href="garden-management.html#gates">Gates</a></li><li><a href="garden-management.html#fencing">Fencing</a></li><li><a href="garden-maintenance.html">Maintenance</a></li><li><a href="garden-services.html">All services</a></li></ul></div><div><h4>Useful links</h4><ul><li><a href="projects.html">Projects</a></li><li><a href="journal.html">Garden Journal</a></li><li><a href="faq.html">Questions</a></li><li><a href="areas.html">Areas we cover</a></li><li><a href="standards.html">Our standards</a></li></ul></div><div><h4>Contact</h4><p><a href="contact.html#enquiry-form">Tell us about your project</a></p><a href="mailto:hello@blossomgarden.design">hello@blossomgarden.design</a></div></div><div class="footer-legal"><span>© 2026 Blossom</span><a href="privacy.html">Privacy</a><a href="cookies.html">Cookie policy</a><a href="terms.html">Website terms</a></div></div></footer>
 
