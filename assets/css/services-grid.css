@@ -25,3 +25,19 @@
  .primary-services > article:nth-child(n+4) { grid-column: span 3; }
 }
 @media (min-width: 600px) and (max-width: 999px) { .primary-services > article:last-child { grid-column: 1 / -1; } }
+
+/* Three clear routes before the detailed service list. */
+.home-page .hero-route-link { align-self: center; color: var(--parchment); font-weight: 700; text-underline-offset: 5px; }
+.home-page .hero-route-link:hover, .home-page .hero-route-link:focus-visible { color: #fff; }
+.buyer-routes { padding-block: clamp(32px, 4.5vw, 56px); }
+.buyer-routes h2 { margin-bottom: 20px; }
+.buyer-route-grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 18px; }
+.buyer-route { display: flex; flex-direction: column; padding: clamp(20px, 2.5vw, 28px); border-radius: 10px; border: 1px solid var(--hairline); }
+.buyer-route:nth-child(1) { background: #E2EAD9; border-color: #C7D3BA; }
+.buyer-route:nth-child(2) { background: #DFE8EB; border-color: #C3D3D9; }
+.buyer-route:nth-child(3) { background: #EFE4CA; border-color: #DBCEAD; }
+.buyer-route h3 { font-size: clamp(21px, 2.2vw, 26px); line-height: 1.2; margin-bottom: 10px; }
+.buyer-route p { margin-bottom: 20px; }
+.buyer-route a { margin-top: auto; font-weight: 700; text-underline-offset: 5px; }
+.buyer-route-note { margin: 18px 0 0; }
+@media (max-width: 759px) { .buyer-route-grid { grid-template-columns: 1fr; gap: 12px; } .buyer-route { padding: 18px; } .buyer-route p { margin-bottom: 12px; } }
