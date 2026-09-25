@@ -139,26 +139,105 @@
     });
   });
 
+  /* ---------- Journey + service context ---------- */
+  var JOURNEY_KEY = "blossom-journey";
+  var SERVICE_KEY = "blossom-service-interest";
+
+  function getStored(key) {
+    try { return sessionStorage.getItem(key) || ""; } catch (e) { return ""; }
+  }
+
+  function setStored(key, value) {
+    if (!value) return;
+    try { sessionStorage.setItem(key, value); } catch (e) { /* ignore */ }
+  }
+
+  function currentJourney() {
+    if (window.location.pathname.indexOf("architects-builders") !== -1) return "trade_partner";
+    return getStored(JOURNEY_KEY) || "direct_customer";
+  }
+
+  function currentService() {
+    var fromQuery = "";
+    try { fromQuery = new URLSearchParams(window.location.search).get("service") || ""; } catch (e) { /* ignore */ }
+    return fromQuery || getStored(SERVICE_KEY) || "";
+  }
+
   /* ---------- Event tracking (only fires when analytics is loaded) ---------- */
   function track(eventName, params) {
     if (typeof window.gtag === "function") {
-      window.gtag("event", eventName, params || {});
+      var payload = Object.assign({
+        page_path: window.location.pathname,
+        journey_type: currentJourney()
+      }, params || {});
+      var service = currentService();
+      if (service && !payload.service) payload.service = service;
+      window.gtag("event", eventName, payload);
     }
   }
 
   document.addEventListener("click", function (e) {
     var a = e.target.closest && e.target.closest("a");
     if (!a) return;
+
+    var href = a.getAttribute("href") || "";
+    var eventName = a.dataset && a.dataset.event ? a.dataset.event : "";
+    var linkText = (a.textContent || "").trim();
+
+    if (eventName === "route_partners" || href.indexOf("architects-builders.html") !== -1) {
+      setStored(JOURNEY_KEY, "trade_partner");
+      track("buyer_route_click", { route: "trade_partner", link_text: linkText });
+    } else if (eventName === "route_garden_projects" || eventName === "route_maintenance") {
+      setStored(JOURNEY_KEY, "direct_customer");
+      track("buyer_route_click", {
+        route: eventName === "route_maintenance" ? "maintenance" : "garden_projects",
+        link_text: linkText
+      });
+    }
+
+    try {
+      var linkUrl = new URL(a.href, window.location.href);
+      var service = linkUrl.searchParams.get("service");
+      if (service) {
+        setStored(SERVICE_KEY, service);
+        track("service_interest", { service: service, link_text: linkText });
+      }
+    } catch (err) { /* ignore malformed URLs */ }
+
     if (a.href && a.href.indexOf("tel:") === 0) {
       track("phone_call_click", { link_url: a.href });
     }
     if (a.href && a.href.indexOf("mailto:") === 0) {
-      track("email_click", { page_path: window.location.pathname });
+      track("email_click");
     }
-    if (a.dataset && a.dataset.event) {
-      track(a.dataset.event, { link_text: (a.textContent || "").trim() });
+    if (eventName) {
+      track(eventName, { link_text: linkText });
+      if (eventName === "book_review_click") {
+        track("enquiry_cta_click", { link_text: linkText });
+      }
     }
   });
+
+  /* Record meaningful page/service intent once per page load. */
+  (function trackPageIntent() {
+    var path = window.location.pathname;
+    var servicePages = {
+      "/garden-maintenance.html": "maintenance",
+      "/garden-design.html": "garden_design",
+      "/garden-management.html": "garden_management",
+      "/garden-projects.html": "garden_projects",
+      "/garden-review.html": "garden_review",
+      "/your-garden-manager.html": "ongoing_garden_support"
+    };
+    if (path.indexOf("architects-builders.html") !== -1) {
+      setStored(JOURNEY_KEY, "trade_partner");
+      track("partner_page_view");
+    }
+    if (servicePages[path]) {
+      setStored(SERVICE_KEY, servicePages[path]);
+      track("service_view", { service: servicePages[path] });
+    }
+  })();
 
   /* ---------- Campaign attribution: persist UTM + landing data ---------- */
   var ATTR_KEY = "blossom-attribution";
@@ -185,6 +264,20 @@
 
   /* ---------- Enquiry forms ---------- */
   document.querySelectorAll("form[data-enquiry]").forEach(function (form) {
+    var formStarted = false;
+    function markFormStarted(e) {
+      if (formStarted) return;
+      var target = e.target;
+      if (!target || target.type === "hidden" || target.name === "_honey") return;
+      formStarted = true;
+      track("enquiry_form_start", {
+        form_id: form.id || "enquiry",
+        service: currentService() || (form.querySelector('[name="help_with"]') || {}).value || ""
+      });
+    }
+    form.addEventListener("focusin", markFormStarted);
+    form.addEventListener("input", markFormStarted);
+
     /* Copy stored attribution into hidden fields if present */
     try {
       var stored = sessionStorage.getItem(ATTR_KEY);
@@ -200,10 +293,18 @@
     form.addEventListener("submit", function (e) {
       /* This is an attempt, not a lead. The provider may still reject it. */
       if (e.defaultPrevented || !form.checkValidity()) return;
-      track("enquiry_form_attempt", { form_id: form.id || "enquiry" });
+      var selectedService = (form.querySelector('[name="help_with"]') || {}).value || currentService() || "";
+      if (selectedService) setStored(SERVICE_KEY, selectedService);
+      track("enquiry_form_attempt", {
+        form_id: form.id || "enquiry",
+        service: selectedService
+      });
       try {
         sessionStorage.setItem(PENDING_LEAD_KEY, JSON.stringify({
-          created: Date.now(), form_id: form.id || "enquiry"
+          created: Date.now(),
+          form_id: form.id || "enquiry",
+          service: selectedService,
+          journey_type: currentJourney()
         }));
       } catch (err) { /* private mode */ }
       /* Demo mode: until a real form endpoint is configured, redirect to the
@@ -224,7 +325,11 @@
       if (pendingLead) {
         var lead = JSON.parse(pendingLead);
         if (Date.now() - lead.created < 30 * 60 * 1000) {
-          track("generate_lead", { form_id: lead.form_id });
+          track("generate_lead", {
+            form_id: lead.form_id,
+            service: lead.service || "",
+            journey_type: lead.journey_type || currentJourney()
+          });
         }
       }
     } catch (err) { /* private mode */ }
