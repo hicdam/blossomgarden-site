@@ -152,6 +152,9 @@
     if (a.href && a.href.indexOf("tel:") === 0) {
       track("phone_call_click", { link_url: a.href });
     }
+    if (a.href && a.href.indexOf("mailto:") === 0) {
+      track("email_click", { page_path: window.location.pathname });
+    }
     if (a.dataset && a.dataset.event) {
       track(a.dataset.event, { link_text: (a.textContent || "").trim() });
     }
@@ -159,6 +162,7 @@
 
   /* ---------- Campaign attribution: persist UTM + landing data ---------- */
   var ATTR_KEY = "blossom-attribution";
+  var PENDING_LEAD_KEY = "blossom-pending-enquiry";
   try {
     var params = new URLSearchParams(window.location.search);
     if (params.get("utm_source") || params.get("utm_campaign")) {
@@ -194,11 +198,14 @@
     } catch (e) { /* ignore */ }
 
     form.addEventListener("submit", function (e) {
-      track("generate_lead", {
-        form_id: form.id || "enquiry",
-        project_type: (form.querySelector('[name="project_type"]') || {}).value || "",
-        budget: (form.querySelector('[name="budget"]') || {}).value || ""
-      });
+      /* This is an attempt, not a lead. The provider may still reject it. */
+      if (e.defaultPrevented || !form.checkValidity()) return;
+      track("enquiry_form_attempt", { form_id: form.id || "enquiry" });
+      try {
+        sessionStorage.setItem(PENDING_LEAD_KEY, JSON.stringify({
+          created: Date.now(), form_id: form.id || "enquiry"
+        }));
+      } catch (err) { /* private mode */ }
       /* Demo mode: until a real form endpoint is configured, redirect to the
          confirmation page so the journey can be tested end to end. */
       if (form.action.indexOf("REPLACE_WITH_FORM_ENDPOINT") !== -1) {
@@ -207,4 +214,19 @@
       }
     });
   });
+
+  /* FormSubmit redirects here only after it accepts the form. Count once,
+     and ignore direct visits or stale attempts. Email ownership is separate. */
+  if (window.location.pathname.replace(/\/$/, "").endsWith("/thanks.html")) {
+    try {
+      var pendingLead = sessionStorage.getItem(PENDING_LEAD_KEY);
+      sessionStorage.removeItem(PENDING_LEAD_KEY);
+      if (pendingLead) {
+        var lead = JSON.parse(pendingLead);
+        if (Date.now() - lead.created < 30 * 60 * 1000) {
+          track("generate_lead", { form_id: lead.form_id });
+        }
+      }
+    } catch (err) { /* private mode */ }
+  }
 })();
