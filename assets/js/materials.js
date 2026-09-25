@@ -55,7 +55,11 @@
   }
   var library = document.querySelector('.materials-page');
   if (!library) return;
-  if (params.has('materials')) persist();
+  if (params.has('materials')) {
+    persist();
+    params.delete('materials');
+    history.replaceState(null, '', window.location.pathname + (params.toString() ? '?' + params.toString() : '') + window.location.hash);
+  }
   document.querySelector('.material-tools').hidden = false;
   document.querySelectorAll('.material-actions').forEach(function (el) { el.hidden = false; });
   var status = document.getElementById('material-status');
