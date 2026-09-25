@@ -1,123 +1,69 @@
 (function () {
   'use strict';
-  var items = window.BlossomMaterials || [];
-  var key = 'blossom-material-preferences-v1';
-  var valid = Object.create(null);
-  items.forEach(function (item) { valid[item.id] = item; });
-  function clean(value) {
-    var out = {};
-    if (!value || typeof value !== 'object' || Array.isArray(value)) return out;
-    items.forEach(function (item) {
-      if (value[item.id] === 'like' || value[item.id] === 'dislike') out[item.id] = value[item.id];
+  var key = 'blossom-garden-ideas-v1';
+  var oldKey = 'blossom-material-preferences-v1';
+  var limit = 4000;
+  var saved = '';
+  var unavailable = false;
+  var data = window.BlossomMaterials || [];
+  function legacyNotes(value) {
+    if (!value || typeof value !== 'object' || Array.isArray(value)) return '';
+    var lines = [];
+    data.forEach(function (item) {
+      if (value[item.id] === 'like') lines.push('Interested in: ' + item.title);
+      if (value[item.id] === 'dislike') lines.push('Prefer to avoid: ' + item.title);
     });
-    return out;
+    return lines.length ? 'Earlier ideas to discuss and refine:\n' + lines.join('\n') : '';
   }
-  var state = {};
-  var storageWorks = true;
-  try { state = clean(JSON.parse(localStorage.getItem(key) || '{}')); } catch (e) { storageWorks = false; }
-  var params = new URLSearchParams(window.location.search);
-  if (params.has('materials')) {
-    var transferred = {};
-    params.get('materials').slice(0,2000).split(',').forEach(function (pair) {
-      var bits = pair.split(':');
-      if (Object.prototype.hasOwnProperty.call(valid,bits[0]) && (bits[1] === 'like' || bits[1] === 'dislike')) transferred[bits[0]] = bits[1];
+  try {
+    var raw = localStorage.getItem(key);
+    if (raw !== null) saved = raw.slice(0,limit);
+    else {
+      var old = {};
+      try { old = JSON.parse(localStorage.getItem(oldKey) || '{}'); } catch (e) { /* damaged old preferences */ }
+      saved = legacyNotes(old);
+    }
+  } catch (e) { unavailable = true; }
+  var note = document.getElementById('garden-ideas');
+  if (note) {
+    note.value = saved;
+    var controls = document.querySelector('.ideas-controls');
+    var status = document.getElementById('ideas-status');
+    controls.hidden = false;
+    function save() {
+      saved = note.value.trim().slice(0,limit);
+      try {
+        localStorage.setItem(key,saved);
+        localStorage.removeItem(oldKey);
+        unavailable = false;
+        status.textContent = saved ? 'Your ideas are saved in this browser. You can return and change them at any time.' : 'Your saved ideas have been cleared.';
+        return true;
+      } catch (e) {
+        unavailable = true;
+        status.textContent = 'This browser cannot save your notes. Please copy them into the enquiry form when you contact us.';
+        return false;
+      }
+    }
+    document.getElementById('ideas-save').addEventListener('click',save);
+    document.getElementById('ideas-discuss').addEventListener('click',function () {
+      if (save()) window.location.href = 'contact.html#enquiry-form';
     });
-    state = clean(transferred);
-  }
-  function persist() {
-    try {
-      if (Object.keys(state).length) localStorage.setItem(key, JSON.stringify(state));
-      else localStorage.removeItem(key);
-      storageWorks = true;
-    } catch (e) { storageWorks = false; }
-  }
-  function serialise() {
-    return items.filter(function (i) { return state[i.id]; }).map(function (i) { return i.id + ':' + state[i.id]; }).join(',');
-  }
-  function summary() {
-    return ['like','dislike'].map(function (choice) {
-      var selected = items.filter(function (i) { return state[i.id] === choice; });
-      return selected.length ? (choice === 'like' ? 'I like:' : 'Not for me:') + '\n' + selected.map(function (i) { return '- ' + i.title; }).join('\n') : '';
-    }).filter(Boolean).join('\n\n');
+    document.getElementById('ideas-clear').addEventListener('click',function () {
+      note.value = ''; saved = '';
+      try { localStorage.removeItem(key); localStorage.removeItem(oldKey); status.textContent = 'Your saved ideas have been cleared.'; }
+      catch (e) { status.textContent = 'The notes on this page are cleared, but this browser could not update its saved data.'; }
+      note.focus();
+    });
+    if (unavailable) status.textContent = 'This browser cannot access saved notes. You can still write ideas here and copy them into your enquiry.';
+    if (window.location.hash === '#choices') window.location.replace('#your-ideas');
   }
   var contact = document.getElementById('material-enquiry');
   if (contact) {
     var field = document.getElementById('material-preferences');
     var include = document.getElementById('include-materials');
-    contact.hidden = !Object.keys(state).length;
-    field.value = summary();
-    field.disabled = !include.checked;
-    include.addEventListener('change',function () { field.disabled = !include.checked; });
-    contact.querySelector('a').href = 'materials.html?materials=' + encodeURIComponent(serialise()) + '#choices';
-    // A persisted page restored by Back should still honour the checkbox.
-    window.addEventListener('pageshow',function () { field.disabled = !include.checked; });
-    return;
+    contact.hidden = !saved;
+    field.value = saved;
+    function update() { field.disabled = !include.checked; }
+    update(); include.addEventListener('change',update); window.addEventListener('pageshow',update);
   }
-  var library = document.querySelector('.materials-page');
-  if (!library) return;
-  if (params.has('materials')) {
-    persist();
-    params.delete('materials');
-    history.replaceState(null, '', window.location.pathname + (params.toString() ? '?' + params.toString() : '') + window.location.hash);
-  }
-  document.querySelector('.material-tools').hidden = false;
-  document.querySelectorAll('.material-actions').forEach(function (el) { el.hidden = false; });
-  var status = document.getElementById('material-status');
-  function render() {
-    var count = Object.keys(state).length;
-    document.getElementById('choices-link').textContent = 'Your choices (' + count + ')';
-    document.getElementById('choice-empty').hidden = count > 0;
-    document.getElementById('choices-clear').hidden = count === 0;
-    var enquiry = document.getElementById('choices-enquiry');
-    enquiry.textContent = count ? 'Use these choices in an enquiry' : 'Discuss your ideas';
-    enquiry.href = 'contact.html' + (count ? '?materials=' + encodeURIComponent(serialise()) : '') + '#enquiry-form';
-    document.getElementById('storage-note').textContent = storageWorks ? 'Your preferences stay in this browser. They are only sent to Blossom if you choose to include them in an enquiry. No account needed.' : 'This browser could not save your choices between visits. Use the enquiry link to carry your current choices with you.';
-    document.querySelectorAll('[data-material]').forEach(function (card) {
-      var choice = state[card.dataset.material] || '';
-      card.dataset.selected = choice;
-      card.querySelectorAll('[data-choice]').forEach(function (button) { button.setAttribute('aria-pressed', String(button.dataset.choice === choice)); });
-    });
-    var lists = document.getElementById('choice-lists');
-    lists.replaceChildren();
-    ['like','dislike'].forEach(function (choice) {
-      var chosen = items.filter(function (i) { return state[i.id] === choice; });
-      if (!chosen.length) return;
-      var heading = document.createElement('h3');
-      heading.textContent = choice === 'like' ? 'You like' : 'Not for you';
-      var ul = document.createElement('ul'); ul.className = 'material-choice-list';
-      chosen.forEach(function (i) {
-        var li = document.createElement('li'); var name = document.createElement('span'); name.textContent = i.title;
-        var button = document.createElement('button'); button.type = 'button'; button.textContent = 'Remove'; button.dataset.remove = i.id; button.setAttribute('aria-label','Remove ' + i.title);
-        li.append(name,button); ul.append(li);
-      });
-      lists.append(heading,ul);
-    });
-  }
-  library.addEventListener('click',function (event) {
-    var button = event.target.closest('button');
-    if (!button) return;
-    if (button.hasAttribute('data-choice')) {
-      var id = button.closest('[data-material]').dataset.material;
-      if (state[id] === button.dataset.choice) delete state[id]; else state[id] = button.dataset.choice;
-      persist(); render(); status.textContent = valid[id].title + (state[id] ? (state[id] === 'like' ? ' added to your likes.' : ' marked as not for you.') : ' removed from your choices.');
-    } else if (button.hasAttribute('data-remove')) {
-      delete state[button.dataset.remove]; persist(); render();
-      document.getElementById('choices-enquiry').focus(); status.textContent = 'Choice removed.';
-    } else if (button.id === 'choices-clear') {
-      state = {}; persist(); render(); document.getElementById('choices-enquiry').focus(); status.textContent = 'All choices cleared.';
-    } else if (button.hasAttribute('data-filter')) {
-      applyFilter(button.dataset.filter);
-      history.replaceState(null,'',window.location.pathname + (button.dataset.filter === 'all' ? '' : '#' + button.dataset.filter));
-    }
-  });
-  function applyFilter(group) {
-    if (['all','buildings','decking','landscaping'].indexOf(group) < 0) group = 'all';
-    document.querySelectorAll('[data-filter]').forEach(function (b) { b.setAttribute('aria-pressed',String(b.dataset.filter === group)); });
-    document.querySelectorAll('[data-material-group]').forEach(function (s) { s.hidden = group !== 'all' && s.dataset.materialGroup !== group; });
-  }
-  applyFilter(window.location.hash.slice(1));
-  window.addEventListener('hashchange',function () {
-    if (window.location.hash !== '#choices') applyFilter(window.location.hash.slice(1));
-  });
-  render();
 }());

@@ -1,19 +1,18 @@
-# Materials library
+# Materials and planning
 
-Published 25 September 2026. Nine initial references in three categories.
+Reframed 25 September 2026 after user feedback. This is a collaborative planning service, not a product catalogue.
 
-Visuals: original schematic SVG swatches created for Blossom, not supplier photography or exact colour matches. Context images reused from the existing approved site library and are not identified as installations of any named manufacturer product. Supplier imagery is linked on the supplier website, not copied or hotlinked.
+Use broad visual inspiration spanning traditional, contemporary and mixed styles. Never imply that shown materials are the complete range or that Blossom is a material supplier. No like/dislike product voting. Open notes capture a visitor’s brief instead. Existing local preferences are migrated to editable notes when no newer notes exist. Clearing removes both generations of saved data.
 
-Sources checked 25 September 2026:
-- TDCA cladding finishes: https://www.tdca.org.uk/timber-cladding/cladding-finishes/
-- TDCA deck finishes: https://www.tdca.org.uk/timber-decking/deck-finishes/
-- Millboard Enhanced Grain Smoked Oak: https://www.millboard.com/en-gb/shop/composite-decking/enhanced-grain-smoked-oak-176mm/
-- Millboard Enhanced Grain Ebony Grey: https://millboard.com/en-gb/shop/composite-decking/enhanced-grain-ebony-grey-126mm/
-- Millboard care: https://www.millboard.com/en-gb/blog/millboard-decking-care-guide
-- Marshalls porcelain: https://www.marshalls.co.uk/gardens-and-driveways/garden-paving/porcelain-paving
-- Marshalls sandstone: https://www.marshalls.co.uk/gardens-and-driveways/products/indian-sandstone-paving
-- Marshalls cleaning: https://www.marshalls.co.uk/gardens-and-driveways/blog/how-to-clean-a-patio
+Show expertise through project decisions: appearance and context; use and access; exposure, ground levels and drainage; preparation, detailing and specialist input; ageing and upkeep; installed costs, repair, reuse and phasing. Do not claim qualifications, accreditations, supplier partnerships or technical testing that have not been supplied.
 
-No prices, performance guarantees or supplier partnerships asserted. Samples, suitability, availability and costs must be agreed per project.
+Investment messaging considers enjoyment/use, costs over time and potential resale appeal. No numerical uplift or guaranteed financial return. Recommend local UK valuation advice when resale is a principal objective.
 
-To add an option: update materials-data.js, the matching static card in materials.html and add a locally hosted visual. Keep stable IDs for saved choices. JS whitelists IDs and values, recovers corrupt/unavailable local storage, and passes only recognised preferences to the enquiry. The optional material_preferences field is disabled unless the visitor opts in; existing message content is never changed.
+Evidence checked 25 September 2026:
+- https://www.rightmove.co.uk/press-centre/22000-premium-for-homes-with-south-facing-gardens/ — study of 2019–2020 asking prices and garden aspect, not a landscaping ROI study or current valuation. No percentage is reproduced in public copy.
+- https://www.rhs.org.uk/garden-inspiration/design/how-much-to-change — assessing existing gardens, retaining features and staging works.
+- https://www.rics.org/consumer-guides/home-extensions-improvements — broader UK improvements planning context; not used as evidence of garden-specific resale uplift.
+
+Visuals reuse the site’s supplied stock image of garden steps and existing approved design inspiration. They do not identify a particular manufacturer’s product or an installed Blossom project. No supplier images copied.
+
+Original product-data file remains solely to translate previously saved preferences. Original SVG assets remain available for existing cached pages; neither is presented as the new catalogue.
