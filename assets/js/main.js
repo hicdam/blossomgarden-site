@@ -154,7 +154,7 @@
 
   function currentJourney() {
     if (window.location.pathname.indexOf("architects-builders") !== -1) return "trade_partner";
-    return getStored(JOURNEY_KEY) || "direct_customer";
+    return getStored(JOURNEY_KEY) || "direct_client";
   }
 
   function currentService() {
@@ -188,7 +188,7 @@
       setStored(JOURNEY_KEY, "trade_partner");
       track("buyer_route_click", { route: "trade_partner", link_text: linkText });
     } else if (eventName === "route_garden_projects" || eventName === "route_maintenance") {
-      setStored(JOURNEY_KEY, "direct_customer");
+      setStored(JOURNEY_KEY, "direct_client");
       track("buyer_route_click", {
         route: eventName === "route_maintenance" ? "maintenance" : "garden_projects",
         link_text: linkText
