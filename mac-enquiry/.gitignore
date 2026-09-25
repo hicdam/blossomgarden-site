@@ -1,0 +1,6 @@
+__pycache__/
+.venv/
+*.sqlite3*
+config.json
+tunnel-token
+public-settings.json
