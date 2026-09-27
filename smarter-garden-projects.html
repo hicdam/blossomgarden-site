@@ -34,6 +34,16 @@
   }
   </script>
   <link rel="stylesheet" href="assets/css/services-grid.css?v=6">
+  <style>
+    /* Compact spacing for this page's consecutive content sections. */
+    #main > .simple-section { padding-block: 24px; }
+    #main > .simple-section + .simple-section { padding-top: 12px; }
+    #main > .simple-section > .wrap > :last-child { margin-bottom: 0; }
+    @media (max-width: 759px) {
+      #main > .simple-section { padding-block: 20px; }
+      #main > .simple-section + .simple-section { padding-top: 12px; }
+    }
+  </style>
 </head>
 <body>
   <a class="skip-link" href="#main">Skip to content</a>
