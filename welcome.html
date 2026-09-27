@@ -10,18 +10,18 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,600;0,9..144,700;1,9..144,400&family=Plus+Jakarta+Sans:wght@400;600;700&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="assets/css/style.css?v=30">
+  <link rel="stylesheet" href="assets/css/style.css?v=31">
 </head>
 <body class="landing">
   <a class="skip-link" href="#book">Skip to enquiry form</a>
 
-  <main>
+  <main id="main">
     <section class="landing-hero">
       <div class="wrap-narrow">
         <img class="brand-mark" src="assets/img/logo-lockup.png" alt="Blossom logo" width="220" height="145">
         <span class="eyebrow" style="margin-bottom: 10px;">Garden buildings &amp; landscaping</span>
-        <h1>Garden buildings, decking, gates &amp; fencing.</h1>
-        <p class="standfirst" style="margin-left: auto; margin-right: auto;">Tell us what you would like to build. We deliver hard landscaping across Surrey, Hampshire and Sussex.</p>
+        <h1>Garden projects and maintenance.</h1>
+        <p class="standfirst" style="margin-left: auto; margin-right: auto;">For homes and businesses across Surrey, Hampshire and Sussex. Tell us about a project, a tidy-up or regular care. Your first call is free.</p>
         <div class="btn-row" style="justify-content: center;">
           <a class="btn btn-primary" href="#book">Tell us what your garden needs</a>
 
@@ -29,7 +29,7 @@
       </div>
     </section>
 
-    <section class="section" id="book" style="padding-top: 40px;">
+    <section class="section" id="book">
       <div class="wrap-narrow">
         <div class="form-panel">
           <span class="eyebrow">What can Blossom help with?</span>
@@ -49,7 +49,7 @@
               </div>
               <div>
                 <label for="help_with">What can Blossom help with?</label>
-                <select id="help_with" name="help_with"><option>Not sure yet</option><option>Garden building</option><option>Decking</option><option>Gates</option><option>Fencing</option><option>Other landscaping</option></select>
+                <select id="help_with" name="help_with"><option>Not sure yet</option><option>Garden building</option><option>Decking</option><option>Gates</option><option>Fencing</option><option>Other landscaping</option><option value="Garden maintenance">Garden &amp; grounds maintenance</option><option>Garden design</option><option>Architect or builder partnership</option></select>
               </div>
               <div class="span-2 consent-row">
                 <input type="checkbox" id="consent" name="consent" required>
@@ -61,7 +61,7 @@
               <input type="text" name="_honey" style="display:none" tabindex="-1" autocomplete="off" aria-hidden="true">
               <input type="hidden" name="utm_source"><input type="hidden" name="utm_medium">
               <input type="hidden" name="utm_campaign"><input type="hidden" name="utm_content">
-              <input type="hidden" name="landing_page"><input type="hidden" name="referrer">
+              <input type="hidden" name="enquiry_from" value="welcome"><input type="hidden" name="landing_page"><input type="hidden" name="referrer">
               <div class="span-2">
                 <button class="btn btn-primary" type="submit" style="width: 100%;">Start the conversation</button>
               </div>
@@ -105,6 +105,6 @@
   </div>
 
   <script src="assets/js/enquiry-validation.js?v=1"></script>
-  <script src="assets/js/main.js?v=28"></script>
+  <script src="assets/js/main.js?v=30"></script>
 </body>
 </html>

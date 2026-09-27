@@ -14,7 +14,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,600;0,9..144,700;1,9..144,400&family=Plus+Jakarta+Sans:wght@400;600;700&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="assets/css/style.css?v=30">
+  <link rel="stylesheet" href="assets/css/style.css?v=31">
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
@@ -38,7 +38,7 @@
 <body class="contact-page">
   <a class="skip-link" href="#main">Skip to content</a>
 
-  <header class="site-header"><div class="nav-bar"><a class="brand" href="index.html" aria-label="Blossom, home"><img src="assets/img/logo-lockup.png" alt="Blossom" height="78"></a><nav class="desktop-nav" aria-label="Main"><ul class="nav-links"><li><a href="garden-management.html">Services</a></li><li><a href="projects.html">Projects</a></li><li><a href="how-it-works.html">How It Works</a></li><li><a href="architects-builders.html">Architects &amp; Builders</a></li><li><a href="about.html">About</a></li></ul></nav><a class="btn btn-primary nav-cta" data-event="book_review_click" href="contact.html#enquiry-form">Let’s talk</a><button class="nav-toggle" type="button" aria-expanded="false" aria-controls="mobile-menu">Menu</button></div><nav class="mobile-menu" id="mobile-menu" aria-label="Mobile" hidden><a class="btn btn-primary" data-event="book_review_click" href="contact.html#enquiry-form">Tell us about your project</a><ul><li><a href="garden-management.html">Services</a></li><li><a href="projects.html">Projects</a></li><li><a href="how-it-works.html">How It Works</a></li><li><a href="architects-builders.html">Architects &amp; Builders</a></li><li><a href="about.html">About</a></li></ul><details class="mobile-more"><summary>Advice and more</summary><ul><li><a href="journal.html">Garden Journal</a></li><li><a href="faq.html">Questions</a></li><li><a href="areas.html">Areas we cover</a></li><li><a href="standards.html">Our standards</a></li><li><a href="garden-services.html">All services</a></li></ul></details></nav></header>
+  <header class="site-header"><div class="nav-bar"><a class="brand" href="index.html" aria-label="Blossom, home"><img src="assets/img/logo-lockup.png" alt="Blossom" height="78"></a><nav class="desktop-nav" aria-label="Main"><ul class="nav-links"><li><a href="garden-management.html">Services</a></li><li><a href="projects.html">Projects</a></li><li><a href="how-it-works.html">How It Works</a></li><li><a href="architects-builders.html">Architects &amp; Builders</a></li><li><a href="about.html">About</a></li></ul></nav><a class="btn btn-primary nav-cta" data-event="book_review_click" href="contact.html#enquiry-form">Let’s talk</a><button class="nav-toggle" type="button" aria-expanded="false" aria-controls="mobile-menu">Menu</button></div><nav class="mobile-menu" id="mobile-menu" aria-label="Mobile" hidden><a class="btn btn-primary" data-event="book_review_click" href="contact.html#enquiry-form">Tell us about your project</a><ul><li><a href="garden-management.html">Services</a></li><li><a href="projects.html">Projects</a></li><li><a href="how-it-works.html">How It Works</a></li><li><a href="architects-builders.html">Architects &amp; Builders</a></li><li><a href="about.html">About</a></li></ul><details class="mobile-more"><summary>Advice and more</summary><ul><li><a href="journal.html">Garden Journal</a></li><li><a href="faq.html">Questions</a></li><li><a href="areas.html">Areas we cover</a></li><li><a href="standards.html">Our standards</a></li><li><a href="smarter-garden-projects.html">Smarter planning</a></li><li><a href="garden-services.html">All services</a></li></ul></details></nav></header>
 
   <main id="main">
 
@@ -47,12 +47,12 @@
       <div class="shade"></div>
       <div class="inner wrap">
         <span class="eyebrow">Start the conversation</span>
-        <h1>Tell us what your outdoor space needs.</h1>
-        <p class="standfirst">For your home or business, a few details are enough to get started. Tell us about a project, a one-off tidy-up or regular garden and grounds maintenance.</p>
+        <h1 id="enquiry-heading">Tell us what your outdoor space needs.</h1>
+        <p class="standfirst">For your home, business or client project. Send a few details and we’ll discuss the work and agree the next step. Your first call is free.</p>
       </div>
     </section>
 
-    <section class="section" style="padding-top: 40px;">
+    <section class="section">
       <div class="wrap">
         <div class="grid-2" style="align-items: start; gap: clamp(32px, 4vw, 56px);">
           <div class="form-panel">
@@ -72,6 +72,15 @@
                   <input type="text" id="location" name="location" required maxlength="120">
                 </div>
 
+                <div>
+                  <label for="audience">This is for (optional)</label>
+                  <select id="audience" name="audience"><option value="">Choose if you like</option><option value="home">My home</option><option value="business">Business premises</option><option value="architect">A client: I’m an architect or designer</option><option value="builder">A client: I’m a builder or contractor</option><option value="partner">A client: another professional role</option></select>
+                </div>
+<div class="span-2">
+                  <label for="help_with">What would you like help with? (optional)</label>
+                  <select id="help_with" name="help_with"><option value="">Choose if you like</option><option>Garden building</option><option>Decking</option><option>Gates</option><option>Fencing</option><option value="Garden maintenance">Garden &amp; grounds maintenance</option><option>Other landscaping</option><option>Complete garden transformation</option><option>Planning permission support</option><option>Architect or builder partnership</option><option>Garden design</option><option>Garden Review</option><option>Ongoing garden support</option><option>Not sure yet</option></select>
+                </div>
+                <p id="enquiry-context" class="span-2 enquiry-context" hidden></p>
                 <div class="span-2">
                   <label for="message">What would you like done?</label>
                   <textarea id="message" name="message" required placeholder="For example: a garden office, new decking, a seasonal tidy-up or regular care for business grounds." maxlength="4000" minlength="8"></textarea>
@@ -81,9 +90,6 @@
                 <div class="span-2 material-enquiry" id="material-enquiry" hidden><h3>Your garden ideas</h3><p>Review your notes below. Include them if you’d like us to use them when discussing your garden.</p><label for="material-preferences">Saved ideas</label><textarea id="material-preferences" name="material_preferences" readonly disabled rows="5"></textarea><div class="consent-row"><input type="checkbox" id="include-materials"><label for="include-materials">Include these ideas with my enquiry</label></div><a href="materials.html#your-ideas">Edit your ideas</a></div><details class="span-2 simple-details"><summary>Add a phone number or more details (optional)</summary><div class="form-grid"><div>
                   <label for="phone">Phone (optional)</label>
                   <input type="tel" id="phone" name="phone" autocomplete="tel">
-                </div><div class="span-2">
-                  <label for="help_with">What would you like help with?</label>
-                  <select id="help_with" name="help_with"><option value="">Choose if you like</option><option>Garden building</option><option>Decking</option><option>Gates</option><option>Fencing</option><option value="Garden maintenance">Garden &amp; grounds maintenance</option><option>Other landscaping</option><option>Garden design</option><option>Garden Review</option><option>Ongoing garden support</option><option>Not sure yet</option></select>
                 </div><div>
                   <label for="timing">Preferred timing (optional)</label>
                   <select id="timing" name="timing">
@@ -115,7 +121,7 @@
                 <input type="text" name="_honey" style="display:none" tabindex="-1" autocomplete="off" aria-hidden="true">
                 <input type="hidden" name="utm_source"><input type="hidden" name="utm_medium">
                 <input type="hidden" name="utm_campaign"><input type="hidden" name="utm_content">
-                <input type="hidden" name="landing_page"><input type="hidden" name="referrer">
+                <input type="hidden" name="enquiry_from"><input type="hidden" name="landing_page"><input type="hidden" name="referrer">
                 <div class="span-2">
                   <button class="btn btn-primary" type="submit" style="width: 100%;">Send my enquiry</button>
                 </div>
@@ -126,8 +132,8 @@
           </div>
           <div class="reveal">
             <span class="eyebrow">What happens next</span>
-            <h2>We will be in touch.</h2><p>Let’s start with a conversation about your outdoor space and what you have in mind. Your initial consultation call is always free.</p><h3>Your first site visit · £295</h3>
-            <p>We’ll walk through your garden or grounds together and turn your ideas into clear next steps. Your visit includes:</p>
+            <h2>A free first conversation.</h2><p>Let’s start with a conversation about your outdoor space and what you have in mind. Your initial consultation call is always free.</p><p>A straightforward job or maintenance enquiry can start with a conversation. We agree any visit, design or specialist fees before booking.</p><h3>Need a detailed Garden Review? £295</h3>
+            <p>If you’re unsure where to start, you can choose a Garden Review. We’ll walk through your garden or grounds together. It includes:</p>
             <ul>
               <li><strong>Time to talk it through.</strong> Discuss what you’d like to change, the problems you want to solve and your budget.</li>
               <li><strong>Clear priorities.</strong> Look at what needs attention, what can wait and where specialist advice may be needed.</li>
@@ -153,7 +159,7 @@
   </div>
 
   <script src="assets/js/enquiry-validation.js?v=1"></script>
-  <script src="assets/js/main.js?v=29"></script>
-<script src="assets/js/materials-data.js?v=1"></script><script src="assets/js/materials.js?v=3"></script>
+  <script src="assets/js/main.js?v=30"></script>
+<script src="assets/js/materials-data.js?v=1"></script><script src="assets/js/materials.js?v=4"></script>
 </body>
 </html>

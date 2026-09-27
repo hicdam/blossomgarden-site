@@ -46,7 +46,7 @@
     }
     document.getElementById('ideas-save').addEventListener('click',save);
     document.getElementById('ideas-discuss').addEventListener('click',function () {
-      if (save()) window.location.href = 'contact.html#enquiry-form';
+      if (save()) window.location.href = 'contact.html?from=materials#enquiry-form';
     });
     document.getElementById('ideas-clear').addEventListener('click',function () {
       note.value = ''; saved = '';

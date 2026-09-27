@@ -177,14 +177,76 @@
     }
   } catch (e) { /* sessionStorage unavailable */ }
 
-  /* Carry the selected service into the enquiry form. */
+  /* Carry the chosen route into a visible, editable enquiry form. */
+  var enquiryParams = new URLSearchParams(window.location.search);
   var serviceField = document.querySelector('select[name="help_with"]');
-  var serviceNames = { "garden-buildings": "Garden building", "decking": "Decking", "gates": "Gates", "fencing": "Fencing", "maintenance": "Garden maintenance" };
-  var chosenService = new URLSearchParams(window.location.search).get("service");
-  if (serviceField && serviceNames[chosenService]) serviceField.value = serviceNames[chosenService];
+  var audienceField = document.querySelector('select[name="audience"]');
+  var serviceNames = {
+    "garden-buildings": "Garden building", "decking": "Decking", "gates": "Gates", "fencing": "Fencing",
+    "maintenance": "Garden maintenance", "landscaping": "Other landscaping", "design": "Garden design",
+    "review": "Garden Review", "management": "Ongoing garden support",
+    "transformation": "Complete garden transformation", "planning": "Planning permission support",
+    "partnership": "Architect or builder partnership"
+  };
+  var audienceNames = { home: "your home", business: "your business premises", architect: "your client project", builder: "your client project", partner: "your client project" };
+  var chosenService = enquiryParams.get("service");
+  var chosenAudience = enquiryParams.get("audience");
+  if (serviceField && Object.prototype.hasOwnProperty.call(serviceNames, chosenService)) serviceField.value = serviceNames[chosenService];
+  if (audienceField && Object.prototype.hasOwnProperty.call(audienceNames, chosenAudience)) audienceField.value = chosenAudience;
+  var enquiryFrom = document.querySelector('input[name="enquiry_from"]');
+  var fromPage = enquiryParams.get("from") || "";
+  if (enquiryFrom && /^[a-z][a-z0-9-]{0,80}$/.test(fromPage)) enquiryFrom.value = fromPage;
+
+  function enquiryDimensions() {
+    var value = serviceField ? serviceField.value : "";
+    var key = Object.keys(serviceNames).find(function (name) { return serviceNames[name] === value; });
+    var audience = audienceField ? audienceField.value : "";
+    return { service: key || "unspecified", audience: Object.prototype.hasOwnProperty.call(audienceNames, audience) ? audience : "unspecified" };
+  }
+  function updateEnquiryContext() {
+    var dimensions = enquiryDimensions();
+    var heading = document.querySelector('#enquiry-heading');
+    var context = document.querySelector('#enquiry-context');
+    var message = document.querySelector('textarea[name="message"]');
+    if (!heading || !context) return;
+    var partner = ['architect', 'builder', 'partner'].indexOf(dimensions.audience) !== -1 || dimensions.service === 'partnership';
+    var maintenance = dimensions.service === 'maintenance';
+    heading.textContent = partner ? 'Tell us about your client project.' : maintenance ? 'Let’s talk about your maintenance needs.' : 'Tell us what your outdoor space needs.';
+    context.hidden = dimensions.service === 'unspecified' && dimensions.audience === 'unspecified';
+    context.textContent = (serviceField.value || 'Garden help') + (audienceNames[dimensions.audience] ? ' for ' + audienceNames[dimensions.audience] : '') + '. You can change these choices above.';
+    if (message) message.placeholder = partner ? 'What stage is the project at, and which garden or external works do you need help with?' : maintenance ? 'What needs doing, roughly how large is the space, and do you need one-off or regular care?' : 'For example: a garden office, new decking, a seasonal tidy-up or a complete garden redesign.';
+  }
+  updateEnquiryContext();
+  [serviceField, audienceField].forEach(function (field) {
+    if (field) field.addEventListener('change', updateEnquiryContext);
+  });
+
+  /* Measure route-to-enquiry handoffs without sending form text or contact details. */
+  document.addEventListener('click', function (event) {
+    var link = event.target.closest && event.target.closest('a[href]');
+    if (!link) return;
+    var destination = new URL(link.href, window.location.href);
+    if (destination.origin === window.location.origin && destination.pathname.endsWith('/contact.html')) {
+      var service = destination.searchParams.get('service');
+      var audience = destination.searchParams.get('audience');
+      track('enquiry_click', {
+        page_path: window.location.pathname,
+        service: Object.prototype.hasOwnProperty.call(serviceNames, service) ? service : 'unspecified',
+        audience: Object.prototype.hasOwnProperty.call(audienceNames, audience) ? audience : 'unspecified'
+      });
+    }
+  });
 
   /* ---------- Enquiry forms ---------- */
   document.querySelectorAll("form[data-enquiry]").forEach(function (form) {
+    var formStarted = false;
+    function trackStart() {
+      if (formStarted) return;
+      formStarted = true;
+      track("enquiry_form_start", Object.assign({ form_id: form.id || "enquiry" }, enquiryDimensions()));
+    }
+    form.addEventListener("input", trackStart);
+    form.addEventListener("change", trackStart);
     /* Copy stored attribution into hidden fields if present */
     try {
       var stored = sessionStorage.getItem(ATTR_KEY);
@@ -200,10 +262,10 @@
     form.addEventListener("submit", function (e) {
       /* This is an attempt, not a lead. The provider may still reject it. */
       if (e.defaultPrevented || !form.checkValidity()) return;
-      track("enquiry_form_attempt", { form_id: form.id || "enquiry" });
+      track("enquiry_form_attempt", Object.assign({ form_id: form.id || "enquiry" }, enquiryDimensions()));
       try {
         sessionStorage.setItem(PENDING_LEAD_KEY, JSON.stringify({
-          created: Date.now(), form_id: form.id || "enquiry"
+          created: Date.now(), form_id: form.id || "enquiry", service: enquiryDimensions().service, audience: enquiryDimensions().audience
         }));
       } catch (err) { /* private mode */ }
       /* Demo mode: until a real form endpoint is configured, redirect to the
@@ -224,7 +286,7 @@
       if (pendingLead) {
         var lead = JSON.parse(pendingLead);
         if (Date.now() - lead.created < 30 * 60 * 1000) {
-          track("generate_lead", { form_id: lead.form_id });
+          track("generate_lead", { form_id: lead.form_id, service: lead.service || "unspecified", audience: lead.audience || "unspecified" });
         }
       }
     } catch (err) { /* private mode */ }
