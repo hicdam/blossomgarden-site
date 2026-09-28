@@ -44,7 +44,10 @@
     .about-page .about-copy p:last-child { margin-bottom: 0; }
     .about-page .about-expectations { padding: 0 0 48px; }
     .about-page .about-expectations h2 { margin: 0 0 24px; }
-    .about-page .about-cards { margin: 0; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 20px; }
+    .about-page .about-cards { margin: 0; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 20px; }
+    @media (min-width: 760px) and (max-width: 999px) {
+      .about-page .about-cards { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+    }
     .about-page .about-cards article { padding: 24px; }
     .about-page .about-cards h3 { margin: 0 0 8px; }
     .about-page .about-cards p { margin: 0 0 16px; }
