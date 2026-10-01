@@ -1,6 +1,6 @@
 # October in the garden: a little preparation before winter
 
-Status: Scheduled for publication on 1 October 2026 under the monthly publishing instruction. Not yet published or linked from the site.
+Status: Published on 1 October 2026 and featured on the homepage through 7 October. Maintenance handover due 8 October.
 Publication date: 1 October 2026 (Europe/London). Homepage hero: 1–7 October. Maintenance feature: from 8 October until the next monthly handover.
 Target URL: journal-october-2026.html
 Image: assets/img/journal-stock/garden-tools-1440-v2.webp
@@ -53,7 +53,7 @@ October is a good time to work through the garden jobs before winter. Our latest
 
 ## Editorial sources
 
-Checked 24 September 2026. These support the gardening advice; they do not imply specific weather conditions in October 2026.
+Rechecked 1 October 2026. These support the gardening advice; they do not imply specific weather conditions in October 2026.
 - RHS October lawns: https://www.rhs.org.uk/advice/in-month/october/lawns
 - RHS October flowers: https://www.rhs.org.uk/advice/in-month/october/flowers
 - RHS October trees and shrubs: https://www.rhs.org.uk/advice/in-month/october/trees-shrubs
